@@ -1,4 +1,4 @@
-### First Day!
+# First Day!
 
 ## ❔Web Standard(웹 표준성이란?)
 * 모든 브라우저에서 공통으로 적용되는 문법으로, 보통 HTML5를 의미한다.
