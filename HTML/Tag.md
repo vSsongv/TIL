@@ -1,5 +1,5 @@
-# Second Day - Tag
-> html을 이루는 tag들에 다룬다. text와 관련된 요소들을 주로 다룬다.
+# Tag
+> html을 이루는 tag들에 다룬다. text와 관련된 요소들을 주로 다룬다. (210927)
 ## Text Contents
 ### 🔘Entity 
 <, >, ", ', &, 같은 특수기호들은 _&+이름_ 으로 써줘야 한다.
@@ -47,4 +47,3 @@ figure tag로 하나의 내용을 감싸주고, figurecaption tag로 설명 부�
 - &lt;del> Tag : 취소선을 넣을 때 사용
 - &lt;insert> Tag : 밑줄을 칠 때 사용
 - &lt;code> Tag : 코드를 나타내고 싶을 때 사용. 코드 한 줄만 표현하기 때문에 &lit;pre>로 감싼 후 사용하면 여러 코드를 표현할 수 있음.
-
