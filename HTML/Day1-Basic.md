@@ -1,4 +1,4 @@
-# First Day!
+# First Day - Basic
 
 ## 💻Web 기초 개념
 ### ❔Web Standard(웹 표준성이란?)
