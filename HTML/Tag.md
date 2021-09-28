@@ -1,5 +1,5 @@
 # Second Day - Tag
-
+> html을 이루는 tag들에 다룬다. text와 관련된 요소들을 주로 다룬다.
 ## Text Contents
 ### 🔘Entity 
 <, >, ", ', &, 같은 특수기호들은 _&+이름_ 으로 써줘야 한다.
