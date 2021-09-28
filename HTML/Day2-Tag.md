@@ -21,15 +21,14 @@ pre tag 내에 작성하는 코드는 그 모양이 **그대로 유지**된다.
 figure tag로 하나의 내용을 감싸주고, figurecaption tag로 설명 부분을 감싸준다.
 ```
 <figure>
-<p> When the sharpest words wanna cut me down
-I'm gonna send a flood, gonna drown 'em out
-I am brave, I am bruised
-I am who I'm meant to be, this is me
-Look out 'cause here I come
-And I'm marching on to the beat I drum
-I'm not scared to be seen
-I make no apologies, this is me </p>
-<figurecaptioin>from This is me</figurecaption>
+     <p> When the sharpest words wanna cut me down I'm gonna send a flood, gonna drown 'em out
+     I am brave, I am bruised
+     I am who I'm meant to be, this is me
+     Look out 'cause here I come
+     And I'm marching on to the beat I drum
+     I'm not scared to be seen
+     I make no apologies, this is me </p>
+     <figurecaptioin>from This is me</figurecaption>
 </figure>
 ```
 ### 🔵Other Tags
