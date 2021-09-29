@@ -1,4 +1,5 @@
 ## 💻Web 기초 개념
+### HTML = Hypertext Markup Language
 ### ❔Web Standard(웹 표준성이란?)
 * 모든 브라우저에서 공통으로 적용되는 문법으로, 보통 HTML5를 의미한다. 
 ### ❓Web Accessibility(웹 접근성이란?)
@@ -40,9 +41,9 @@ Inline은 Block요소 안에 포함 가능하다.
 ### Content Categories
 ![](https://images.velog.io/images/songjy377/post/46333756-1bce-426f-98e5-96b06c4b3217/image.png)
 - Metadata Content : 문서의 메타데이터(다른 문서를 가리키는 링크 등을 나타내는 요소)
-- Flow Content : 웹 페이지상의 메타데이처를 제외한 모든 요소
+- Flow Content : 웹 페이지상의 메타데이터를 제외한 모든 요소
 - Section Content : 구획을 나눌 때 사용
 - Heading Content : 섹션의 제목과 관련된 요소들
 - Phrasing Content : 문단에서 text를 markUp할 때 사용
-- Embaded Content : 이미지나 비디오 등 외부 소스를 가져오거나 삽입할 때 사용되는 요소
+- Embedded Content : 이미지나 비디오 등 외부 소스를 가져오거나 삽입할 때 사용되는 요소
 - Interactive Content : 사용자와의 상호작용을 위한 컨텐츠 요소
