@@ -1,0 +1,24 @@
+.parent {
+    text-indent: 300px;
+    color: blue;
+}
+.child1 {
+    color: red;
+}
+.parent * {
+	color: inherit
+}
+.child1 {
+    all: unset;
+}
+p {
+    width: 120px;
+}
+
+p {
+    background-color: beige;
+}
+
+p[lang="ko"] { 
+    word-break: keep-all;
+}
