@@ -1,5 +1,5 @@
 # Font & Text 속성
-> font와 text를 꾸밀 수 있는 css요소들을 다룬다.
+> font와 text를 꾸밀 수 있는 css요소들을 다룬다.(210929)
 ## 🎀Font
 - font에 관련한 css속성들이다.
 - **font-size, font-family**는 반드시 포함되어야 한다.
