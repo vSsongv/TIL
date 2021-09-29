@@ -1,4 +1,4 @@
-# Sementic/NonSementic Web
+# Sementic & NonSementic Web
 >Sementic/NonSementic Web을 이루는 각 tag들에 대해 다룬다. (210927)
 ## 🟥 NonSementic Web
 - 아무런 의미가 없는 tag로 이루어진 web
