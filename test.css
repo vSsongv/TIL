@@ -3,19 +3,18 @@
     color: blue;
 }
 .child1 {
-    color: red;
+    color: white;
 }
 .parent * {
 	color: inherit
-}
+} */
+
 .child1 {
     all: unset;
 }
-p {
-    width: 120px;
-}
 
 p {
+    width: 120px;
     background-color: beige;
 }
 
