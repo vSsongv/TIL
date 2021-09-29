@@ -69,16 +69,16 @@
 | 미국 | 워싱턴 | 3억 |
 | 태국 | 방콕 | 6900만 |
 
-- **&lt;tr>** : table의 제목으로 사용할 수 있다. 이때 반드시 table의 첫 번째 자식이어야 한다.
-- **&lt;tr>** : "table row" 한 row을 나타낸다. 
-- **&lt;th>** : "table head", table의 대표 col 부분을 나타낸다.(나라이름, 수도, 인구 부분) 한국, 미국, 태국 부분을 th로 바꿀 수도 있다. 이때 이들은 열을 대표하는 내용을 이룬다.
+- **&lt;tr> ** : table의 제목으로 사용할 수 있다. 이때 반드시 table의 첫 번째 자식이어야 한다.
+- **&lt;tr> ** : "table row" 한 row을 나타낸다. 
+- **&lt;th> ** : "table head", table의 대표 col 부분을 나타낸다.(나라이름, 수도, 인구 부분) 한국, 미국, 태국 부분을 th로 바꿀 수도 있다. 이때 이들은 열을 대표하는 내용을 이룬다.
      - &lt;th **scope="col/row"** > : 해당 head가 col을 대표하는지, row를 대표하는지 나타내는 것이 좋다.
 - **&lt;td>** : table의 data들을 이룬다. 
      - &lt;td **colspan="숫자"** > : 숫자 개수만큼의 col를 차지하게 된다.
-     ```
-     <td colspan="2"합계</td>
-     <td>4억 2000만</td>
-     ```
+```
+       <td colspan="2"합계</td>
+       <td>4억 2000만</td>
+```
 ### 🔸 table section tags
 table또한 head, body, footer로 구획을 나눌 수 있다.
 각 부분을 &lt;thead>, &lt;tbody>, &lt;tfoot>으로 감싸주면 된다.
