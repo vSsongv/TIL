@@ -15,7 +15,6 @@
 ![](https://images.velog.io/images/songjy377/post/d42a4d7a-b8fd-4b9a-8f22-be4a171b0743/image.png)
 ### 2.Inline (인라인 스타일) - _사용 지양_
 - 딱 하나의 요소에만 style적용을 하는 것, style 속성을 사용한다. 딱 하나만 선택하는 것이므로 selector 없이 선언부만 필요하다.
-- font-size
 ![](https://images.velog.io/images/songjy377/post/448db2d2-186c-4113-b198-a316ff2d0245/image.png)
 ### 3.External (외부 스타일) - _가장 좋은 방법_
 - 별도로 분리한 css 파일을 link 속성을 사용하여 연결해주는 방법.
