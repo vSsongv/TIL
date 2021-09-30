@@ -52,8 +52,8 @@
 link-visited-hover-active(LVHA) 순서로 배치하는 것이 좋다.
 ![](https://images.velog.io/images/songjy377/post/8bfb9ab5-d09e-44c0-b36f-c15371cd269e/image.png)
 10. **input[type=type]:enabled** : 속성이 enabled인 요소들에 style이 적용된다.
-11. **input[type=type]:disabled** : 속성이 disabled인 요소들에 style
-12. **input[type=type]:cheched** : 속성이 checked인 요소들에 style
+11. **input[type=type]:disabled** : 속성이 disabled인 요소들에 style이 적용된다.
+12. **input[type=type]:cheched** : 속성이 checked인 요소들에 style이 적용된다.
 ![](https://images.velog.io/images/songjy377/post/00b0992d-c12a-4028-b580-6b931e9aaae3/image.png)
 ### 🏹Pseudo-Element Selector(가상 요소 선택자)
 - 실제로 존재하지 않는 요소를 만들거나, 범위를 만들어서 스타일 적용을 한다. 
