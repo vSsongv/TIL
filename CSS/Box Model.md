@@ -2,15 +2,17 @@
 >Box Model의 margin, border, padding 영역과 관련된 내용을 다룬다.(210930)
 ## 📦Box Model
 ![](https://images.velog.io/images/songjy377/post/a45024e5-116e-4eca-9a68-0347e9cd2740/image.png)
-> - content : 콘텐츠가 표시되는 영역.
-> - padding : content와 border사이의 영역.
-> - border : padding과 margin사이의 테두리. 기본값은 0
-> - margin : 가장 바깥 쪽 레이어로 content와 padding, border를 둘러싸면서 해당 box와 다른 요소 사이의 공백 역할을 한다.
+> 
+- content : 콘텐츠가 표시되는 영역.
+- padding : content와 border사이의 영역.
+- border : padding과 margin사이의 테두리. 기본값은 0
+- margin : 가장 바깥 쪽 레이어로 content와 padding, border를 둘러싸면서 해당 box와 다른 요소 사이의 공백 역할을 한다.
 
 ### <크기>
 - box의 크기를 설정할 수 있는 요소들이다.
-- block 요소는 기본 content만큼의 크기로 height, width가 적용되고, 직접 지정할 시 지정한 만큼 크기를 가진다.
-- inline 요소는 height/width 속성이 적용되지 않는다. -> display 속성으로 block요소로 변경 가능하다.
+- block 요소는 기본 content만큼의 크기로 height, width가 적용되고, 직접 지정할 시 지정한 만큼 크기를 가진다.ex)div
+- **inline 요소는 height/width 속성이 적용되지 않는다.** -> display 속성으로 block요소로 변경 가능하다.ex)span
+- **inline-block 요소는 height/width, margin/padding이 적용된다. 그러나 가로 배치가 된다.**
  ## 🗳️ width
  - 요소의 너비를 설정한다. 기본값은 콘텐츠 영역의 너비이지만, box-sizing이 border-box라면 테두리 영역의 너비를 설정한다. 상속되지 않는다.
  ## 🗳️ height
@@ -37,13 +39,14 @@
 ![](https://images.velog.io/images/songjy377/post/33b8b422-3c19-4d46-a7b4-6a06be1a4df0/image.png)
 ### <여백>
 - box model의 여백을 결정하는 요소들이다.
-
-  > - 한 개의 값은 모든 네 면의 테두리 스타일을 설정.
-  > - 두 개의 값을 지정하면 첫 번째는 위와 아래, 두 번째는 왼쪽과 오른쪽 테두리 스타일을 설정.
-  > - 세 개의 값을 지정하면 첫 번째는 위, 두 번째는 왼쪽과 오른쪽, 세 번째 값은 아래 테두리 스타일을 설정.
-  > - 네 개의 값을 지정하면 각각 상, 우, 하, 좌 순서로 테두리 스타일을 지정. (시계방향)
+>
+  - 한 개의 값은 모든 네 면의 테두리 스타일을 설정.
+  - 두 개의 값을 지정하면 첫 번째는 위와 아래, 두 번째는 왼쪽과 오른쪽 테두리 스타일을 설정.
+  - 세 개의 값을 지정하면 첫 번째는 위, 두 번째는 왼쪽과 오른쪽, 세 번째 값은 아래 테두리 스타일을 설정.
+  - 네 개의 값을 지정하면 각각 상, 우, 하, 좌 순서로 테두리 스타일을 지정. (시계방향)
 ## 🗳️ margin
 - box model의 맨 **바깥쪽 여백** 부분이다.
+- **inline 요소는 top,bottom을 지정할 수 없다.**
 - margin-bottom, margin-left, margin-right, margin-top의 네 부분을 조절할 수 있다.
 ```
   /* 네 면 모두 적용 */
@@ -96,7 +99,8 @@ ex) box의 위 margin이 10px이고, 아래 margin이 20px일 경우 두 box가 
 
 ## 🗳️ padding
 ### <테두리>
--  요소의 네 방향 **안쪽 여백** 영역을 설정한다. padding-top, padding-right, padding-bottom, padding-left의 단축 속성.
+- 요소의 네 방향 **안쪽 여백** 영역을 설정한다. padding-top, padding-right, padding-bottom, padding-left의 단축 속성.
+- **inline 요소는 top,bottom을 지정할 수 없다.**
 ```
     /* 네 면 모두 적용 */
     padding: 1em;
