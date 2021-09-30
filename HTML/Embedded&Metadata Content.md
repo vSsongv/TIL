@@ -6,7 +6,7 @@
 ### &lt;iframe> tag
 - 현재 문서 안에 다른 html 페이지를 삽입하기 위해 사용된다.
 
-### 🖼️ &ltimg> tag
+### 🖼️ &lt;img> tag
 ```
 <img class="fit-picture"
      src="/media/cc0-images/grapefruit-slice-332-332.jpg"
