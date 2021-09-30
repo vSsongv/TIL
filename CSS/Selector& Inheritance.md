@@ -2,7 +2,6 @@
 > CSS의 selector, Inheritance에 대해 다룬다.에 대한 기초 설명이다.(210929)
 ## 🧿Selector
 - CSS 규칙을 적용할 요소를 정의한다.
-
 ### 🏹Type Selector
 - 전체 웹페이지에서 일반적으로 적용해야 하거나, 일괄적으로 적용해줘야 하는 스타일이 있을 때 사용한다. 일괄적으로 바뀌기 때문에 사용시 주의해야한다.
 ![](https://images.velog.io/images/songjy377/post/3f1cc078-1f0a-44d4-9dfb-28cde1198f39/image.png)
@@ -132,7 +131,7 @@ link-visited-hover-active(LVHA) 순서로 배치하는 것이 좋다.
 ```
 - 위 코드에 따르면 ul tag의 바로 밑에 있는 li tag내의 첫번째 요소에 style이 적용된다.
 ![](https://images.velog.io/images/songjy377/post/e6eb9467-d931-40fe-89f5-698612fd1752/image.png)
-3. **type ~ selector** 일반 형제 선택자 결합. selector와 type은 형제 관계. -> 같은 부모를 가진 요소들 중에 **type보다 뒤에 있는** selector 모두에게 style을 적용한다.
+3. **type ~ selector** : 일반 형제 선택자 결합. selector와 type은 형제 관계. -> 같은 부모를 가진 요소들 중에 **type보다 뒤에 있는** selector 모두에게 style을 적용한다.
 ```
 <div>
     <p>P</p>
@@ -146,7 +145,7 @@ code ~p {
 }
 ```
 위 코드에서 **code ~p** 이기 때문에 code뒤쪽에 있는 **P2**만 style이 적용된다.![](https://images.velog.io/images/songjy377/post/1dae24b2-212e-48b8-9c8b-2c6f499f45c8/image.png)
-4. 3. **type + selector** 인접 형제 선택자 결합. type과 인접한(바로 위/아래) 형제 중에 selector에 대해 style을 적용한다.
+4. **type + selector** : 인접 형제 선택자 결합. type과 인접한(바로 위/아래) 형제 중에 selector에 대해 style을 적용한다.
 ```
 <div>
     <p>P</p>
@@ -162,7 +161,7 @@ code + div{
 ```
 위 코드에서 **code +div** 이기 때문에 code바로 위/아래에 div가 없으므로 적용되지 않을 것이다. 만약 **code + p**라면 아래에 적용된다.
 ![](https://images.velog.io/images/songjy377/post/3f6cef79-d862-4383-8951-f1d6962bcbbf/image.png)
-5. **type, type, type** 그룹화. code,div,span 처럼 원하는 tag들을 그룹화하여 style을 적용시킬 수 있다. 
+5. **type, type, type** : 그룹화. code,div,span 처럼 원하는 tag들을 그룹화하여 style을 적용시킬 수 있다. 
 6. * : 범용 선택자. 모든 요소들에 style을 적용시킨다. **p + *** 라면 p 바로 아래에 있는 요소들에게 스타일을 적용시킨다. 위의 예시에서는 div, span에 적용된다.
 ![](https://images.velog.io/images/songjy377/post/642eebf9-09fa-4eaf-a588-2c732057c5ee/image.png)
 ## 🧿Inheritance
