@@ -30,22 +30,24 @@
 - **text-indent** : **블록 요소**의 앞 부분을 얼마나 띄울지 설정할 수 있다. 상속되는 속성이므로 부모 class에 설정해주면 자식 요소들에게 모두 적용된다. '%'값으로도 사용 가능하다. **ex)text-indent: 30px;**
 - **text-transform** : 글씨의 형태를 변경할 수 있다. **uppercase(모두 대문자로 변경), lowercase(모두 소문자로 변경), full-width, capitalize(단어의 첫 글자만 대문자로 변경),** 
 - **text-decoration** : 글씨의 장식(선) 색을 지정한다. **1.text-decoration-line**, **2.text-decoration-color**, **3.text-decoration-style**, **4.text-decoration-thickness**을 정할 수 있다.
+
   1. **text-decoration-line** : _default는 none으로, 얘를 선언해주지 않으면 아래 애들은 쓸 수 없다._ 선을 그릴 위치를 지정한다. 
-     - underlin : 밑줄 
-     - overline, : 윗줄
-     - line-through : 취소선
+    > - underlin : 밑줄 
+    > - overline, : 윗줄
+    > - line-through : 취소선
+     
      로 3가지를 사용할 수 있고, 동시에 사용 가능하다. 보통 text-decoration으로 쓴다.
   2. **text-decoration-style** : 선의 형태를 지정한다. default는 solid이다. 
-     - solid : 잘 이어진 한 줄로 그린다.
-     - double : 두 줄로 그린다.
-     - dotted : 점선으로 그린다.
-     - dashed : 좀 더 긴 점선으로 그린다.
-     - wavy : 물결 무늬로 그린다.
+    > - solid : 잘 이어진 한 줄로 그린다.
+    > - double : 두 줄로 그린다.
+    > - dotted : 점선으로 그린다.
+    > - dashed : 좀 더 긴 점선으로 그린다.
+    > - wavy : 물결 무늬로 그린다.
      
-      |코드|결과|
-      |-|-|
-      | span { color: blue text-decoration: line-through red 2px } | ![](https://images.velog.io/images/songjy377/post/a18f6b20-bc9f-4a58-931d-ea40d607eb6d/image.png) |
-      | span { color: blue text-decoration: blakc line-through red wavy } | ![](https://images.velog.io/images/songjy377/post/20597420-2e6a-48ce-9085-205004bc81ae/image.png)
+     |코드|결과|
+     |-|-|
+     | span { color: blue text-decoration: line-through red 2px } | ![](https://images.velog.io/images/songjy377/post/a18f6b20-bc9f-4a58-931d-ea40d607eb6d/image.png) |
+     | span { color: blue text-decoration: blakc line-through red wavy } | ![](https://images.velog.io/images/songjy377/post/20597420-2e6a-48ce-9085-205004bc81ae/image.png)
 
 - **word-break**
   - 텍스트가 자신의 콘텐츠 박스 밖으로 넘어갈 때 박스 밖으로 나갈지, 줄바꿈을 할지 지정한다. 한중일 언어는 기본적으로 break-all속성이다.
