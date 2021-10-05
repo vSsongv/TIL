@@ -14,11 +14,11 @@ div와 동일한 역할이지만, **Inline요소**이다.
 ![](https://images.velog.io/images/songjy377/post/1aa2ba2c-a391-4262-a5de-38e55d0ad67a/Image%2011.jpg)
   ### &lt;main>
   Body의 주요 Content를 나타냄. 문서의 핵심 주제나 기능에 직접적으로 연결됐거나 확장하는 contents로 이루어진다. **하나만 있어야 한다** 모든 주요 Contents를 아우른다.
-   ### &lt;header> 
+  ### &lt;header> 
    소개 및 탐색에 도움을 주는 content.(제목, 로고, 검색 폼 등), **header는 1개만 사용한다.**
  ![](https://images.velog.io/images/songjy377/post/9065d792-7400-49d5-805a-874e494a31fd/Image%2011.jpg) (네이버의 header부분)
-   - &lt;footer> : 저작권 정보, 관련 문서 등의 내용을 담는다. **footer 또한 1개만 사용한다.**
-![](https://images.velog.io/images/songjy377/post/82cd9d9d-1ad2-410d-8995-d51eb655bbc7/Image%2011.jpg)(네이버의 footerqnqns)
+  ### &lt;footer> : 저작권 정보, 관련 문서 등의 내용을 담는다. **footer 또한 1개만 사용한다.**
+  ![](https://images.velog.io/images/songjy377/post/82cd9d9d-1ad2-410d-8995-d51eb655bbc7/Image%2011.jpg)(네이버의 footerqnqns)
   ### &lt;nav>
   목차, 색인, 메뉴 같은 한 페이지 내 다른 페이지로의 링크를 보여주는 구획을 나타낸다.
   ![](https://images.velog.io/images/songjy377/post/1a24e726-f20c-442c-82c0-b9cee4718f98/Image%2011.jpg)
@@ -37,7 +37,8 @@ div와 동일한 역할이지만, **Inline요소**이다.
     영화에 대한 정보...
   </p>
 </article>
-  ```
+
+
   ### &lt;article>
    게시판과 블로그 글, 매거진이나 뉴스 기사같이 문서, 페이지, 애플리케이션, 또는 사이트 안에서 독립적으로 구분해 배포하거나 재사용할 수 있는 구획을 나타낸다.
    여러 개의 article이 하나의 문서 안에 존재할 수 있다.
