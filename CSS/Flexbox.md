@@ -7,7 +7,7 @@
 - main axis : 정렬의 주축 / cross axis : 교차축(기본은** 가로/세로, 왼쪽->오른쪽/ 위->아래**이다.)
 ![](https://images.velog.io/images/songjy377/post/7a0fca79-27bb-4935-bc10-439b2566749b/image.png)
 -**해당 요소가 부모인지, 자식인지 정확한 이해가 필요하다.**
-- item과 containe이 함께 있어야 한다.
+- item과 container이 함께 있어야 한다.
 - display 속성을 사용한다.
 ### ✅ display
 - display-outside : inline요소와 block요소 자신의 바깥 요소들과의 관계를 의미한다.
@@ -156,7 +156,7 @@
 > ![](https://images.velog.io/images/songjy377/post/15a88777-ef65-42e2-b74c-cbd99af04f2a/image.png)
 > - glow를 1씩 하더라도 초기 크기가 다르면 다르게 glow할 수도 있다.
 > ![](https://images.velog.io/images/songjy377/post/5c1303c3-c397-4d8e-96ea-cffab0ec71b6/image.png)
-
+  
 ### 📒 flex-shrink
 > - flex-container 요소의 크기보다 flex-item 요소의 크기가 클 때 flex-shrink 속성을 사용하는데, 설정된 숫자값에 따라 flex-container 요소 내부에서줄어든 크기를 flex-item 요소들이 나누어서 줄어든다.
 > 기본값은 1이다. 음수값 사용 불가. **값이 0이면 줄어들지 않는다.**
@@ -200,22 +200,15 @@
 > - 초기값
 >  ![](https://images.velog.io/images/songjy377/post/72ceb2f0-b420-4052-b077-7bd85d29aaa6/image.png)
 > - 값이 한 개일 때, 그 값은 다음 중 하나여야 합니다.
->
->   ```<number>를 지정하면 <flex-grow>입니다.```
->
->   ```<length> 또는 <percentage>를 지정하면 <flex-basis>입니다.```
+> ```<number>를 지정하면 <flex-grow>입니다.```
+> ```<length> 또는 <percentage>를 지정하면 <flex-basis>입니다.```
 >- 값이 두 개일때, 첫 번째 값은 &lt;number>여야 하며 &lt;flex-grow>가 됩니다. 두 번째 값은 다음 중 하나여야 합니다.
->
->   ```<number>를 지정하면 <flex-shrink>입니다.```
->
->   ```<length>, <percentage>, 또는 auto를 지정하면 <flex-basis>입니다.```
+> ```<number>를 지정하면 <flex-shrink>입니다.```
+> ```<length>, <percentage>, 또는 auto를 지정하면 <flex-basis>입니다.```
 > - 값이 세 개일 때는 다음 순서를 따라야 합니다.
->
->   ```<flex-grow>에 사용할 <number>```
->
->   ```<flex-shrink>에 사용할 <number>```
->
->   ```<flex-basis>에 사용할 <length>, <percentage>, 또는 auto```
+> ```<flex-grow>에 사용할 <number>```
+> ```<flex-shrink>에 사용할 <number>```
+> ```<flex-basis>에 사용할 <length>, <percentage>, 또는 auto```
 >- 한 개 또는 두 개의 단위 없는 숫자 값을 사용할 때, **&lt;flex-basis>의 값은 auto가 아니라 0**이 됩니다.
 > ```  
 > /* Three values: flex-grow | flex-shrink | flex-basis */
@@ -224,10 +217,8 @@
 > ```
 > - **initial**
 >   - flex: 0 1 auto와 동일.
->
 > - **auto**
 >   - flex: 1 1 auto와 동일.
->
 > - **none**
 >   - flex: 0 0 auto와 동일.
 
