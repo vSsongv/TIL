@@ -32,9 +32,9 @@ tag 사이에 content가 들어간다.
     <\body>
 <\html>
 ```
-### Block / Inline
-- Block level 요소는 언제나 새로운 줄에서 시작하고, 좌우 양쪽으로 최대한 늘어나 **가능한 모든 너비**를 차지한다.
-- Inline level 요소는 줄의 어느 곳에서나 시작할 수 있고, 바로 이전 요소가 끝나는 지점부터 시작하여 **요소의 내용까지만** 차지한다.
+### 🔲Block / 🔳Inline
+- 🔲 Block level 요소는 언제나 새로운 줄에서 시작하고, 좌우 양쪽으로 최대한 늘어나 **가능한 모든 너비**를 차지한다.
+- 🔳 Inline level 요소는 줄의 어느 곳에서나 시작할 수 있고, 바로 이전 요소가 끝나는 지점부터 시작하여 **요소의 내용까지만** 차지한다.
 Inline은 Block요소 안에 포함 가능하다.
 ![block](https://images.velog.io/images/songjy377/post/b373cdfb-e71d-45b5-9f2f-d8ea86cf0bac/bb.jpg)
 
