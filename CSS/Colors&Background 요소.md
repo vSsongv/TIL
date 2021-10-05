@@ -93,7 +93,7 @@ background-image:
 **percantage** : 이미지가 찌그러지지 않는 한도 내에서 제일 크게 설정하지만, **가로에 맞춘다.**
 **length** : 원본 크기의 너비/높이를 주어진 값으로 늘리거나 줄임. 음수는 유효하지 않음.
 
-### ✅ background shortcut
+### ✅ background-shorthand
 - 초기값
 ![](https://images.velog.io/images/songjy377/post/5ba0e115-2fd4-4f59-b8f7-65e21b371b44/image.png)
 
