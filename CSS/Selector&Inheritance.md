@@ -1,3 +1,5 @@
+# Selector & Inheritance
+> CSS의 selector, Inheritance에 대해 다룬다.에 대한 기초 설명이다.(210929)
 ## 🧿Selector
 - CSS 규칙을 적용할 요소를 정의한다.
 ### 🏹Type Selector
