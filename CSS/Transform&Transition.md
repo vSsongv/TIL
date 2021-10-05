@@ -97,7 +97,7 @@ transform-origin: bottom;
   
 ```
 
-### ✅ transition shortcut
+### ✅ transition-shorthand
 - 초기값
 ![](https://images.velog.io/images/songjy377/post/51ecf066-0535-4cbe-8121-199f8b64b54e/image.png)
 ```
