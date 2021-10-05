@@ -1,23 +1,36 @@
-.parent {
-    text-indent: 300px;
-    color: blue;
-}
-.child1 {
-    color: white;
-}
-.parent * {
-	color: inherit
-} */
+.container {
+    border: 5px dashed orange;
+    width: 400px;
+    height: 400px;
 
-.child1 {
-    all: unset;
-}
-
-p {
-    width: 120px;
-    background-color: beige;
+    display: grid;
+    /* grid-template-columns: 5fr 3fr 2fr 5fr;
+    grid-template-rows: repeat(4, 1fr); */
+    grid-template-areas:
+        "hd hd hd hd hd"
+        "hd hd hd hd hd"
+        "ma ma ma sb sb"
+        "ft ft ft ft ft"
 }
 
-p[lang="ko"] { 
-    word-break: keep-all;
+.item {
+    background-color: paleturquoise;
+    border: 3px solid blue;
+    font-size: 24px;
+}
+
+.header {
+    grid-area: hd;
+}
+
+.main {
+    grid-area: ma;
+}
+
+.sidebar {
+    grid-area: sb;
+}
+
+.footer {
+    grid-area: ft;
 }
