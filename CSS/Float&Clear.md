@@ -58,53 +58,53 @@
 ![](https://images.velog.io/images/songjy377/post/a8839960-5dd6-4275-8ac0-bf0251648402/image.png)
 
 ### ✔️ float 사용 시 사라진 부모height 값을 살리려면?
+
+### ❗ 가상 요소 선택자 이용
+>가상 요소를 만들어서 해당 요소를 출력하는 방법!
+>``` css
+>.main::after {
+>    content: "";
+>    clear: both;
+>    display: block;
+>}
+>```
+><span style="color:red">**가장 권장된다!**<span>
 ### ❗ 부모 tag에 clearfix 추가하기
 >부모 main tag내에 clearfix 라는 div를 만들어서 해당 div에 `clear: both` 속성을 주어, 해당 div가 float된 요소들 아래에 위치하도록 하는 방법!
-```html
-<main>
-  <div class="group group1">1</div>
-  <div class="group group2">2</div>
-  <div class="group group3">3</div>
-  <div class="clearfix"></div>
-</main>
-```
-```css
-main .clearfix {
-  clear: both;
-}
-```
-<span style="color:red">**불필요한 div를 이용하는 것이므로 가장 권장되지 않는다!**<span>
+>```html
+> <main>
+>   <div class="group group1">1</div>
+>   <div class="group group2">2</div>
+>   <div class="group group3">3</div>
+>   <div class="clearfix"></div>
+> </main>
+> ```
+> ```css
+> main .clearfix {
+>   clear: both;
+> }
+> ```
+> <span style="color:red">**불필요한 div를 이용하는 것이므로 가장 권장되지 않는다!**<span>
   
 ### ❗ overflow:hidden
 > float된 요소의 부모태그에 overflow:hidden을 적용하여, 자식 요소가 부모 요소 박스보다 커지는 경우 자식 요소를 가리는 방법!
-넘치는 콘텐츠를 숨긴다는 의미는 부모 요소 박스가 그 자식 요소 콘텐츠를 숨긴다는 것인데,
-부모 요소가 플롯된 자식 요소로 인해 높이를 인지하지 못하고 있는 상황에서 overflow: hidden; 속성을 적용하게 되면 부모 요소(컨테이닝 박스)는 넘치는 요소를 숨김 처리를 하려고 하기 때문에 자식 요소의 높이를 인지하기 위해 자동으로 높이값을 계산하게 된다!
-```css
-main {
-  overflow: hidden;
-}  
-```
-<span style="color:red">**but 해당 요소 안의 컨텐츠를 박스 외부로 표현해줄 수 없는 경우가 있다. auto를 쓰면 스크롤이 생겨서 보기에 좋지 않을수도 있다.**<span>
+>넘치는 콘텐츠를 숨긴다는 의미는 부모 요소 박스가 그 자식 요소 콘텐츠를 숨긴다는 것인데,
+>부모 요소가 플롯된 자식 요소로 인해 높이를 인지하지 못하고 있는 상황에서 overflow: hidden; 속성을 적용하게 되면 부모 요소(컨테이닝 박스)는 넘치는 요소를 숨김 처리를 하려고 하기 때문에 자식 요소의 높이를 인지하기 위해 자동으로 높이값을 계산하게 된다!
+>```css
+>main {
+>  overflow: hidden;
+>}  
+>```
+><span style="color:red">**but 해당 요소 안의 컨텐츠를 박스 외부로 표현해줄 수 없는 경우가 있다. auto를 쓰면 스크롤이 생겨서 보기에 좋지 않을수도 있다.**<span>
   
 ### ❗ Flow-root
 >생긴지 얼마 안 된 속성이며, 비교적 최근에 만들어진 속성이다. 
-부모 요소에 적용시켜서 블록 컨테이너를 생성하고, float가 적용된 자식 요소를 인식시킨다.
-```css
-main {
-  display: flow-root;
-}  
-```
-<span style="color:red">**IE에서는 지원 불가! **<span>
-  
-### ❗ 가상 요소 선택자 이용
->
-  가상 요소를 만들어서 해당 요소를 출력하는 방법!
-``` css
-.main::after {
-    content: "";
-    clear: both;
-    display: block;
-}
-```
-<span style="color:red">**가장 권장된다!**<span>
+>부모 요소에 적용시켜서 블록 컨테이너를 생성하고, float가 적용된 자식 요소를 인식시킨다.
+>```css
+>main {
+>  display: flow-root;
+>}  
+>```
+><span style="color:red">IE에서는 지원 불가!<span>
+
   
