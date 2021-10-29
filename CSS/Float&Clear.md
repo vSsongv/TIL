@@ -1,5 +1,3 @@
-# Float & Clear
-> css의 float속성에 대해 자세히 다룬다. float clear하는 방법에 대해 다룬다. float로 인해 부모 요소의 height가 사라졌을 때의 해결 방법을 다룬다.(211027)
 ## ☁️ Float
 - 한국어로 '뜨다'라는 의미를 가진 것처럼, 요소를 다른 요소 위에 **띄워주는** 역할을 한다.
 ### <값>
@@ -58,9 +56,9 @@
 ![](https://images.velog.io/images/songjy377/post/a8839960-5dd6-4275-8ac0-bf0251648402/image.png)
 
 ### ✔️ float 사용 시 사라진 부모height 값을 살리려면?
-
+  
 ### ❗ 가상 요소 선택자 이용
->가상 요소를 만들어서 해당 요소를 출력하는 방법!
+>  가상 요소를 만들어서 해당 요소를 출력하는 방법!
 >``` css
 >.main::after {
 >    content: "";
@@ -69,42 +67,72 @@
 >}
 >```
 ><span style="color:red">**가장 권장된다!**<span>
+  
 ### ❗ 부모 tag에 clearfix 추가하기
 >부모 main tag내에 clearfix 라는 div를 만들어서 해당 div에 `clear: both` 속성을 주어, 해당 div가 float된 요소들 아래에 위치하도록 하는 방법!
 >```html
-> <main>
->   <div class="group group1">1</div>
->   <div class="group group2">2</div>
->   <div class="group group3">3</div>
->   <div class="clearfix"></div>
-> </main>
-> ```
-> ```css
-> main .clearfix {
->   clear: both;
-> }
-> ```
-> <span style="color:red">**불필요한 div를 이용하는 것이므로 가장 권장되지 않는다!**<span>
+><main>
+>  <div class="group group1">1</div>
+>  <div class="group group2">2</div>
+>  <div class="group group3">3</div>
+>  <div class="clearfix"></div>
+></main>
+>```
+>```css
+>main .clearfix {
+>  clear: both;
+>}
+>```
+><span style="color:red">**불필요한 div를 이용하는 것이므로 가장 권장되지 않는다!**<span>
+
+### ❗ BFC 활용하기
+## ☁️ BFC(Box Formatting Context)
+- 하위 요소들을 대상으로 독립적인 레이아웃 환경을 만들수 있고 다른 주변 요소와도 레이아웃 관계를 형성할 수 있다. 내부의 모든 요소를 포함한다.
+- float 요소를 그릴 때 사용하는 박스와 같은 녀석. BF의 크기 및 위치에 따라서 float 요소가 어디서 생기는지가 달라진다.
+- **BFC가 생기게 되면 같은 div 안에 있는 요소들이 그 BFC 안에 들어가고, 그 요소들의 크기는 BFC의 크기에 영향을 준다.**
+
+### ✅ BFC가 생기는 조건
+> - html root 요소일때
+>   - html는 웹 문서의 시작을 알리는 최상위 요소이다. 따라서 기본적으로 하위 요소들은 독립적인 레이아웃을 가질 수 있도록 되어 있다.
+> - float 상태일때
+>   - 하위 요소가 선택적으로 float 속성 값을 none이 아닌 값을 가지게 되면 독립적인 레이아웃 환경을 갖는다.
+> - position: fixed거나 absolute일때
+>   - 하위 요소가 선택적으로 position 속성 값을 absolute 또는 fixed 값을 가지게 되면 독립적인 레이아웃 환경을 갖는다.
+> - display: inline-block, table, table-cell, table-caption
+>   - 하위 요소가 inline-block을 갖게되면 주변 inline 요소와 관계가 무너지면서 독립적인 공간을 형성하게 되므로 역시 독립적인 레이아웃 환경을 갖는다.
+> - overflow: visible가 아닐 때
+>   - overflow 속성 값이 visible 이외의 값을 갖는 다는 것은 공간에 대한 크기 정의를 했다고 볼 수 있다. 그렇게 때문에 독립적인 공간을 형성한 것으로 볼 수 있으며 따라서 BFC를 요건을 가지고 있다.
+> - display: flow-root (일부 브라우저만 동작함)
+>   - 부모 요소에 적용시켜서 블록 컨테이너를 생성하고, float가 적용된 자식 요소를 인식시키기 때문에 독립적인 공간을 형성한다.
+
+[참조링크](https://blueshw.github.io/2020/05/17/know-css-block-formatting-context/)
+
+### ✅ BFC의 활용
+- margin callapse를 막는다.
+- 새로운 bfc를 만들어서 float된 요소들을 포함할 수 있다.
   
 ### ❗ overflow:hidden
-> float된 요소의 부모태그에 overflow:hidden을 적용하여, 자식 요소가 부모 요소 박스보다 커지는 경우 자식 요소를 가리는 방법!
->넘치는 콘텐츠를 숨긴다는 의미는 부모 요소 박스가 그 자식 요소 콘텐츠를 숨긴다는 것인데,
->부모 요소가 플롯된 자식 요소로 인해 높이를 인지하지 못하고 있는 상황에서 overflow: hidden; 속성을 적용하게 되면 부모 요소(컨테이닝 박스)는 넘치는 요소를 숨김 처리를 하려고 하기 때문에 자식 요소의 높이를 인지하기 위해 자동으로 높이값을 계산하게 된다!
+> - float된 요소의 부모태그에 overflow:hidden을 적용하여, 자식 요소가 부모 요소 박스보다 커지는 경우 자식 요소를 가리는 방법!
+>- 넘치는 콘텐츠를 숨긴다는 의미는 부모 요소 박스가 그 자식 요소 콘텐츠를 숨긴다는 것인데,
+>- 부모 요소가 플롯된 자식 요소로 인해 높이를 인지하지 못하고 있는 상황에서 overflow: hidden; 속성을 적용하게 되면 부모 요소(컨테이닝 박스)는 넘치는 요소를 숨김 처리를 하려고 하기 때문에 자식 요소의 높이를 인지하기 위해 자동으로 높이값을 계산하게 된다!
 >```css
 >main {
 >  overflow: hidden;
 >}  
 >```
 ><span style="color:red">**but 해당 요소 안의 컨텐츠를 박스 외부로 표현해줄 수 없는 경우가 있다. auto를 쓰면 스크롤이 생겨서 보기에 좋지 않을수도 있다.**<span>
+![](https://images.velog.io/images/songjy377/post/cb5c90a5-fc9f-43d0-ab1f-d6c1cdb3bd0d/image.png)
   
 ### ❗ Flow-root
 >생긴지 얼마 안 된 속성이며, 비교적 최근에 만들어진 속성이다. 
->부모 요소에 적용시켜서 블록 컨테이너를 생성하고, float가 적용된 자식 요소를 인식시킨다.
+>부모 요소에 적용시켜서 블록 컨테이너를 생성하고, float가 적용된 자식 요소를 인식시키고, 요소의 시작 지점을 변경시킬 수 있다.
 >```css
 >main {
 >  display: flow-root;
 >}  
 >```
-><span style="color:red">IE에서는 지원 불가!<span>
+><span style="color:red">**IE에서는 지원 불가! **<span>
+![](https://images.velog.io/images/songjy377/post/a57760a2-ea5b-4a3b-9815-dfa270e433e6/image.png)
+
 
   
