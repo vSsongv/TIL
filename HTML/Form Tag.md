@@ -58,7 +58,7 @@
   </div>
 ```
 ### &lt;속성 종류>
-- **name** : input 양식 컨트롤의 이름. 이 필드가 어떤 값을 가지고 있는지 식별하는 데에 사용. 이름/값 짝(name/value pair)의 일부로서 양식과 함께 전송된다.ㅋ
+- **name** : input 양식 컨트롤의 이름. 이 필드가 어떤 값을 가지고 있는지 식별하는 데에 사용. 이름/값 짝(name/value pair)의 일부로서 양식과 함께 전송된다.
 - <span style="color: red">**disabled**</span> : 모든 자손에 대해 비활성화한다. 값 자체를 사용하지 않아서 post/get으로 값 전송이 불가하다.
 - <span style="color: red">**readonly**</span> : 값 입력을 받지 못하게 만든다. disabled과 달리 post/get으로 값 전송이 가능하다. value 속성으로 변경 불가능한 값을 지정하여 사용할 수 있다.
 - **placeholder** : 입력값에 대한 예시를 제공한다.(글자 색이 옅다)
@@ -118,7 +118,8 @@
 ```
 ### 🔨legend Tag
 - fieldset 부분의 이름을 뜻한다.
-- 무조건 fieldset tag의 **첫번째 자식**이어야 ### 🔨Select Tag
+- 무조건 fieldset tag의 **첫번째 자식**이어야 한다.
+### 🔨Select Tag
 - 옵션 메뉴를 제공하는 컨트롤을 나타낸다.
 - disable, required 속성 사용 가능하다.
 ```
