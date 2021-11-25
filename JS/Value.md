@@ -44,35 +44,6 @@ var Ssong;
 - 이때 JS엔진은 모든 선언문들을 먼저 실행한다.
 - 변수,함수 등의 선언문이 코드의 선두로 끌어올려진 것처럼 동작하는 특징을 JS의 **변수 호이스팅**이라고 한다.
 
-> ❗ var의 문제점 ❗
->
-> - var는 변수 재선언이 가능하다.
->
-> ```js
-> var country = 'korea';
-> console.log(name); // korea
->
-> var country = 'usa';
-> console.log(name); // usa
-> ```
->
-> - 변수를 한 번 더 선언했음에도 불구하고, 에러가 나오지 않는다.
-> - var는 function level scope를 가진다.
->
-> ```js
-> var a = 1;
->
-> if (true) {
->   var a = 5;
-> }
->
-> console.log(a); // output: 5
-> ```
->
-> - if block내에서 a가 다시 한번 선언되었고, 아래 output이 바뀌었다.
-> - **전역 스코프를 공유하기 때문에 어딘가에 동일한 이름이 있다면 예상치 못한 결과를 가져올 수 있는 위험이 있다.**
->   -> 이로 인해 **let, const**가 생겨났다.
-
 ### ✅ 값의 할당
 
 ```js
