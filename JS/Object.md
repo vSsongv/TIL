@@ -41,6 +41,25 @@
 ```
 - 객체 리터럴의 중괄호는 코드 블록을 의미하지 않는다. -> 맨 뒤에 `;`을 붙이지 않는다.
 
+```js
+	var person = {
+	  name: 'Lee',
+	  gender: 'male',
+	  sayHello: function () {
+	    console.log('Hi! My name is ' + 	this.name);
+	  }
+	};
+
+	person = {
+	  name: 'Lee',
+	  gender: 'male',
+	  sayHello: function () {
+	    console.log('Hi! My name is ' + 	this.name);
+	  }
+	};
+```
+- 만약 위와 같은 상황이라면 person이라는 객체를 새로운 메모리에 생성하고, 기존 person의 연결을 옮긴다. 
+
 ### 2. Object 생성자 함수
 - new 연산자와 Object 생성자 함수를 호출하여 빈 객체를 생성할 수 있다. 
 - 빈 객체 생성 이후 프로퍼티 또는 메소드를 추가하여 객체를 완성하는 방법
@@ -96,14 +115,14 @@ person.name = 'Ssong';
 ```js
 	var circle = {
 	  radius: 5, -> 프로퍼티
-	  getDiameter: function () { -> 메소드
+	  getDiameter: function () { -> 메소드, getDiameter() 만 메소드이다.
 	    return 2 * this.radius;
     	  }
 	};
 ```
 
 ### ✅ 프로퍼티 key
-- 프로퍼티는 프로퍼티 키로 유일하게 식별할 수 있다. -> 프로퍼티 키는 프로퍼티를 식별하기 위한 **식별자(identifier)다**.
+- 프로퍼티는 프로퍼티 키로 유일하게 식별할 수 있다. -> 프로퍼티 키는 프로퍼티를 식별하기 위한 **식별자(identifier) 역할을 한다**.
 - 프로퍼티 키 : 빈 문자열을 포함하는 모든 문자열 또는 symbol 값
 - 프로퍼티 값 : 모든 값 
 ❗ **프로퍼티 키가 식별자 네이밍 규칙을 따르지 않을 때에는 반드시 따옴표를 사용해야 한다.**
@@ -139,6 +158,12 @@ person.name = 'Ssong';
 > - 객체의 프로퍼티 값에 접근하는 방법은 마침표(.) 표기법과 대괄호([]) 표기법이 있다.
 
 - 프로퍼티 키가 유효한 자바스크립트 이름이고 예약어가 아닌 경우 프로퍼티 값은 마침표 표기법, 대괄호 표기법 모두 사용할 수 있다.
+- 📌 객체가 아닌 값 `'acb'`에 마침표 표기법을 사용하면 JS엔진이 객체처럼 변화했다가 끝나면 다시 돌린다.
+```js
+	'abc'.length 
+	//abc는 string. 원시 타입이지만 .을 사용하여 객체처럼 동작한다. 
+	//'abc'의 길이를 알 수 있다.
+```
 - 프로퍼티 이름이 유효한 자바스크립트 이름이 아니거나 예약어인 경우 프로퍼티 값은 대괄호 표기법으로 읽어야 한다.
 - 숫자인 경우 따옴표를 생략할 수 있다.
 
@@ -183,7 +208,7 @@ console.log(person[1]);   // 10 : person[1] -> person['1']
 	  name: 'Ssong',
 	};
 	
-	person[name] = 'Kim';
+	person[name] = 'Kim'; // person.name = 'Kim'; 과 동일
 	
 	console.log(person[name] ); // 'Kim'
 ```
@@ -210,6 +235,7 @@ console.log(person[1]);   // 10 : person[1] -> person['1']
 	console.log(person); // {name: "Ssong"}
 	delete person.address //address라는 프로퍼티가 없지만 에러가 발생하지 않는다.
 ```
+- ❗ delete는 안티패턴 -> 부수 효과가 있으므로, 그리고 삭제할 값을 왜 만들었니?
 
 ## ✅ ES6에서 추가된 객체 리터럴의 확장 기능
 ### 1. 프로퍼티 축약 표현

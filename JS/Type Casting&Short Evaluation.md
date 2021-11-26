@@ -244,23 +244,26 @@ var value = elem && elem.value; // null
 > - 함수를 호출할 때 인수를 전달하지 않으면 매개변수에는 undefined가 할당된다. 이때 단축 평가를 사용해 매개변수의 기본값을 설정하면 undefined로 인해 발생할 수 있는 에러를 방지할 수 있다.
 >
 > ```js
-> function getStringLength(str) {
->   str = str || '';
->   return str.length;
-> }
+>	function getStringLength(str) {
+>	  str = str || '';
+>	  return str.length;
+>	}
+>	getStringLength(); // unfdefined가 들어간다. 출력은 0.
 >
-> //ES6의 기본값 설정
-> function getStringLength(str = '') {
->   str = str || '';
->   return str.length;
-> }
-> getStringLength(); // 0
-> getStringLength('hi'); // 2
+>     //ES6의 기본값 설정
+>     function getStringLength(str = '') {
+>       str = str || '';
+>       return str.length;
+>     }
+>     getStringLength(); // 0
+>     getStringLength('hi'); // 2
 > ```
 
 ### 🔰 옵셔널 체이닝(optional chaining) 연산자
 
 > - ES6에서 도입된 옵셔널 체이닝 연산자 `?.` 는 좌항의 피연산자가 null 또는 undefined인 경우 undefined를 반환하고, 그렇지 않으면 우항의 프로퍼티 참조를 이어간다.
+>- 객체에다 사용하는 역할. 
+❗ <span style="color:red">BUT</span> number, string같은 경우는 객체처럼 동작한다. `('here').length` 가 가능하다.
 
 ```js
 var elem = null;
