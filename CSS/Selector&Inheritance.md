@@ -22,6 +22,7 @@
    3. **type[attr^=value]** : val로 시작하는 속성들에게 style을 적용한다.
    4. **type[attr$=value]** : val로 끝나는 속성들에게 style을 적용한다.
    5. **type[attr*=value]** : val값을 포함하는 속성들에게 style을 적용한다.
+   6. **[name="search"]** : type을 쓰지 않을 수도 있다. 해당 예시는 name이 search인 요소들을 선택한다.
 
 ![](https://images.velog.io/images/songjy377/post/87e33efc-0a69-4058-a63e-35b8c338da87/image.png)
 ### 🏹Pseudo-Class Selector(가상 클래스 선택자)
