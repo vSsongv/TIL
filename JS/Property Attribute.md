@@ -6,6 +6,7 @@
 - 이중 대괄호 ([[....]])로 감싼 이름들이다.
 - 개발자가 직접적으로 접근할 수 없다.
 - 모든 객체는 [[Prototype]] 이라는 내부 슬롯을 갖는다. -> \__proto__로 접근할 수 있다.
+- 모든 함수는 [[Enviroment]]이라는 내부 슬롯을 가지고 있다.
 
 ## ✅ 프로퍼티 어트리뷰트
 > - 자바스크립트 엔진은 프로퍼티를 생성할 때 **프로퍼티의 상태를 나타내는 프로퍼티 어트리뷰트**를 기본값으로 자동 정의한다. 
@@ -23,9 +24,23 @@
 };
  
  console.log(Object.getOwnPropertyDescriptor(person, 'name'));
- // { value: 'Ssong', writable: true, enumerable: true, configurable: true }
+ // { value: 'Ssong', writable: true, enumerable: true, configurable: true } -> 프로퍼티 디스크립터 객체.
 ```
 - Object.getOwnPropertyDescriptors 메소드는 모든 프로퍼티의 프토퍼티 어트리뷰트 정보를 제공하는 프로퍼티 디스크립터 객체들을 반환한다.
+
+>❓ 왜 `person.getOwnPropertyDescriptors`로 만들지 않았을까?
+> -> person이 객체가 아니게 되면 문제가 생기기 때문이다.
+
+```js
+const person = {
+    name: 'Ssong'
+}
+
+person.__proto__ = Object.prototype;
+
+//person은 hasOwnProperty 메소드를 가지고있지 않지만 Object가 가지고있기 때문에 상속을 받아 true가 출력된다.
+console.log(person.hasOwnProperty('name'));
+```
 
 ## ✅ 프로퍼티의 종류
 >- 프로퍼티는 데이터 프로퍼티와 접근자 프로퍼티로 구분할 수 있다.
@@ -125,8 +140,8 @@ Object.getOwnPropertyDescriptor(function () { }, 'prototype');
 |enumerable|	[[Enumerable]]|	false
 |configurable|	[[configurable]]|	false
 
-📌 Object.defineProperty : 한번에 하나의 프로퍼티만 정의할 수 있다.
-📌 Object.defineProperties : 여러 개의 프로퍼티를 한 번에 정의할 수 있다.
+📌 `Object.defineProperty` : 한번에 하나의 프로퍼티만 정의할 수 있다.
+📌 `Object.defineProperties` : 여러 개의 프로퍼티를 한 번에 정의할 수 있다.
 ```js
 const person = {};
 
