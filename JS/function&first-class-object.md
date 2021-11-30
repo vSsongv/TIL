@@ -1,6 +1,7 @@
 # 함수와 일급 객체
 > 함수와 일급 객체의 정의, 함수 객체의 프로퍼티에 대해 정리하였다.(211130)
 
+객체는 객체 리터럴 이외의 생성자 함수를 사용하여 객체를 생성할 수 있다.
 ## ✅ 일급 객체
 - 다음 조건을 만족하는 객체를 일급 객체라 한다.
 > 1. 무명의 리터럴로 생성할 수 있다.
@@ -51,7 +52,7 @@
 ## ✅ 함수 객체의 프로퍼티
 함수는 객체이기 때문에 프로퍼티를 가질 수 있다.
 
-브라우저 콘솔에서 console.dir 메서드를 사용해서 함수 객체의 프로퍼티들을 살펴보면 다음과 같다.
+브라우저 콘솔에서 `console.dir` 메서드를 사용해서 함수 객체의 프로퍼티들을 살펴보면 다음과 같다.
 ```js
 function square(number) {
   return number * number;
@@ -64,7 +65,7 @@ console.dir(square);
 - `Object.getOwnPropertyDescriptors` 메소드로 모든 프로퍼티의 프로퍼티 어트리뷰트를 확인해보면 아래와 같다.
 ![](https://images.velog.io/images/songjy377/post/e81c3550-faf3-4102-a368-8a21ea6941be/image.png)
 - `arguments`, `caller`, `length`, `name`, `prototype` 프로퍼티는 일반 객체에는 없는 함수 객체의 고유한 데이터 프로퍼티다.
-- 그러나 \__proto__는 함수 객체의 고유의 프로퍼티가 아니라 Object.prototype 객체의 프로퍼티를 상속받은것이다. (Object.prototype 객체의 프로퍼티는 모든 객체가 상속 받아 사용할 수 있다.)
+- 그러나 `__proto__`는 함수 객체의 고유의 프로퍼티가 아니라 Object.prototype 객체의 프로퍼티를 상속받은것이다. (Object.prototype 객체의 프로퍼티는 모든 객체가 상속 받아 사용할 수 있다.)
 
 ### 🔰 arguments property
 > - 함수 객체의 arguments 프로퍼티 값은 arguments 객체다. 
@@ -144,9 +145,9 @@ function bar() {}
 console.log(bar.name); // bar
 ```
 
-### 🔰 \__proto__ 접근자 property
+### 🔰 `__proto__` 접근자 property
 
-> - \__proto__ 프로퍼티는 [[Prototype]] 내부 슬롯이 가리키는 프로토타입 객체에 접근하기 위해 사용하는 접근자 프로퍼티다.
+> - `__proto__` 프로퍼티는 `[[Prototype]]` 내부 슬롯이 가리키는 프로토타입 객체에 접근하기 위해 사용하는 접근자 프로퍼티다.
 > - 객체 리터럴 방식으로 생성한 객체의 프로토타입 객체는 Object.prototype이다. 즉, 객체 리터럴 방식으로 생성한 객체는 프로토타입 객체인 **Object.prototype의 프로퍼티를 상속**받는다.
 
 ```js
