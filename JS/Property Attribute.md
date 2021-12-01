@@ -102,7 +102,7 @@ console.log(person); //{ firstName: 'Hana', lastName: 'Choi' }
 
 //접근자 프로퍼티를 통한 프로퍼티 값의 참조
 //fullName에 접근하면 getter함수가 호출된다.
-console.log(person); //Hana Choi
+console.log(person.fullName); //Hana Choi
 ```
 - `firstName`과 `lastName`은 **데이터 프로퍼티**다. 
 - getter/setter 함수의 이름인 `fullName`이 **접근자 프로퍼티**다.
