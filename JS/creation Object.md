@@ -155,7 +155,7 @@ console.log(circle) // Circle {radius: 1, getDiameter: f}
 
 ### 🔰 내부 메서드 [[Call]]과 [[Construct]]
 > - 함수는 일반 객체가 가지고 있는 내부 슬롯과 내부 메소드들은 물론, 함수 객체만을 위한 [[Enviroment]], [[FormalParameters]]등의 내부 슬롯과 [[Call]], [[Construct]] 같은 내부 메소드를 추가로 가지고 있다.
-> - 함수가 일반 함수로서 호출되면 함수 객체의 내부 메서드 [[Call]]이 호출되고, new 연산자와 함께 생성자 함수로서 호출되면 내부 메서드 [[Construct]]가 호출된다.
+> - 함수가 **일반 함수로서 호출되면 함수 객체의 내부 메서드 `[[Call]]`** 이 호출되고, **new 연산자와 함께 생성자 함수로서 호출되면 내부 메서드 `[[Construct]]`** 가 호출된다.
 ```js
 function foo() {}
 foo(); // 일반적인 함수로서 호출 , [[Call]] 호출
