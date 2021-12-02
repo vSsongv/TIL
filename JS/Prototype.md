@@ -578,7 +578,7 @@ console.log(me instanceof Object); // true
 >* @param {Object} [propertiesObject] - 생성할 객체의 프로퍼티 키와 프로퍼티 디스크립터 객체로 이뤄진 객체 전달 (옵션)
 >* @returns {Object} 지정된 프로토타입 및 프로퍼티를 갖는 새로운 객체
 >*/
->Object.create(prototype[, propertiesObject])
+>Object.create(prototype, [propertiesObject])
 >```
 
 ```js
