@@ -137,11 +137,9 @@
 >  'use strict';
 >  
 >  // SyntaxError: Duplicate parameter name not allowed in this context
->  function foo(x, x) {
->    return x + x;
+>  with({x, 1}) {
+>     console.log(x);
 >  }
->  
->  console.log(foo(1, 2));
 >}());
 >```
 
