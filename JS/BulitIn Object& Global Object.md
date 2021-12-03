@@ -248,7 +248,7 @@ console.log(enc); // %ED%99%8D%EA%B8%B8%EB%8F%99%26job%3Dprogrammer
 >var x = 10; // 전역 변수
 >function foo () {
 > //선언하지 않은 식별자에 값을 할당
->  y = 20; window.y = 20;
+>  y = 20; //window.y = 20;
 >}
 >foo();
 >
@@ -262,9 +262,9 @@ console.log(enc); // %ED%99%8D%EA%B8%B8%EB%8F%99%26job%3Dprogrammer
 >var x = 10; // 전역 변수
 >function foo () {
 > //선언하지 않은 식별자에 값을 할당
->  y = 20; window.y = 20;
+>  y = 20; //window.y = 20;
 >}
 >foo();
 >
-> delete y //프로퍼티이므로 삭제 가능하다.
+> delete y; //프로퍼티이므로 삭제 가능하다.
 >```
