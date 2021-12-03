@@ -1,3 +1,6 @@
+# this
+> this에 대해 정리했다.(211103)
+
 동작을 나타내는 메소드는 자신이 속한 객체의 상태, 즉 프로퍼티를 참조하고 변경할 수 있어야 한다. 이때 자신이 속한 객체의 프로퍼티를 참조하려면 **자신이 속한 객체를 카리키는 식별자를 참조할 수 있어야 한다.**
 ```js
 function Circle(radius) {
@@ -19,7 +22,7 @@ this는 자바스크립트 엔진에 의해 암묵적으로 생성되며, 함수
 > - `this`는 자바스크립트 엔진에 의해 암묵적으로 생성된다. 
 > - **`this`가 가리키는 값, 즉 this 바인딩은 <span style="color:red">함수 호출 방식에 의해 동적으로 결정**</span>된다.
 
-## 함수 호출 방식과 this 바인딩
+## ✅ 함수 호출 방식과 this 바인딩
 > - this 바인딩은 **함수 호출 방식, 즉 함수가 어떻게 호출되었는지에 따라 동적으로 결정**된다.
 ><br>
 >- 📌 함수를 호출하는 방식
@@ -171,7 +174,7 @@ const anotherPerson = {
 // anotherPerson 객체에 할당
 anotherPerson.getName = person.getName;
 
-//getName을 호출한 객체는 anotherPerson 이므로 Kim이 나온다!
+//getName을 호출한 객체는 anotherPerson 이므로 Ssong이 나온다!
 console.log(anotherPerson.getName()); 
 
 // 변수에 할당
@@ -334,3 +337,4 @@ console.log(getThisBinding.call(thisArg)); // { a: 1 }
 |메서드 호출|	메서드를 호출한 객체
 |생성자 함수 호출|	생성자 함수가 생성할 인스턴스
 |apply/call/bind()에 의한 호출|	apply/call/bind() 메서드에 인수로 전달한 객체
+_<모던 자바스크립트 deepdive를 읽고 정리한 내용입니다.>_
