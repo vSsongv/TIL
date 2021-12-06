@@ -169,7 +169,7 @@ new foo(); // 생성자 함수로서 호출, [[Construct]]호출
 ### 🔰 constructor vs non - constructor
 
 - constructor : 함수 선언문, 함수 표현식, 클래스
-- non-constructor : 메서드, 화살표 함수
+- non-constructor : 메서드 축약 표현, 화살표 함수
 ```js
 function foo() {}
 const bar = function () {};
