@@ -72,6 +72,7 @@ const derived = {
 
 ## ➡️ 화살표 함수
 > - 화살표 함수(arrow function)는 function 키워드 대신 화살표(`=>`)를 사용하여 기존의 함수 정의 방식보다 간략하게 함수를 정의할 수 있다.
+> - 한 줄 짜리 함수를 작성할 때 유용.
 
 ### ⬆️ 화살표 함수 정의
  ✳️ <span style="color:#00CE11">**함수 정의**</span>
@@ -219,6 +220,27 @@ console.log(counter.increase()); // ?
 ❌ <span style="color:#910099">**화살표 함수는 함수 자체의 this 바인딩을 갖지 않기 때문에 화살표 함수 내부의 this를 교체할 수 없다.**</span>
 
 ❌ <span style="color:#910099">**메서드를 화살표 함수로 정의하는 것은 피해야 한다. 메서드를 정의할 때는 ES6 메서드 축약 표현으로 정의한 ES6 메서드를 사용하는 것이 좋다.**</span>
+>```js
+>// Bad
+>const person = {
+>  name: 'Ssong',
+>};
+>
+>Object.prototype.sayHi = () => console.log(`Hi ${this.name}`);
+>
+>person.sayHi(); // Hi undefined
+>
+>// Good
+>const person = {
+>  name: 'Ssong',
+>};
+>
+>Object.prototype.sayHi = function() {
+>  console.log(`Hi ${this.name}`);
+>};
+>
+>person.sayHi(); // Hi Ssong
+>```
 
 ❌ <span style="color:#910099">**프로토타입 객체의 프로퍼티를 동적 추가할 때는 일반 함수를 할당해라.**</span>
 
@@ -329,5 +351,6 @@ console.log(counter.increase()); // ?
 >}
 >// SyntaxError: Rest parameter may not have a default initializer
 >```
+> ❗ 근데, 매개변수도 안 넘겼는데 뭔가가 출력되는건 조금 이상하다! 에러를 발생시켜서 _너 인수 넘겨줘야 해!_ 라고 알리는 것이 좋다.
 
 _<모던 자바스크립트 deepdive를 읽고 정리한 내용입니다.>_
