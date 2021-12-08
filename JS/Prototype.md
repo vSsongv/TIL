@@ -105,7 +105,7 @@ console.log(circle2.getDiameter()); // 20
 📌 <span style="color:orange">**`__proto__`은 접근자 프로퍼티이다.**</span>
 
 - 내부 슬롯은 프로퍼티가 아니므로, 직접적으로 접근하거나 호출할 수 없다. -> `__proto__` 접근자 프로퍼티를 통해 간접적으로만 접근할 수 있다.
-- `__proto__` 접근자 프로퍼티는 getter, setter를 통해 배누 슬롯의 값(프로토타입 값)을 취득하거나 할당한다. 프로토타입에 접근하면 내부적으로 getter 함수인 `get__proto__`가 호출된다. `__proto__` 접근자 프로퍼티를 통해 새로운 프로토타입을 할당하면 setter 함수인 `set__proto__`가 호출된다.
+- `__proto__` 접근자 프로퍼티는 getter, setter를 통해 내부 슬롯의 값(프로토타입 값)을 취득하거나 할당한다. 프로토타입에 접근하면 내부적으로 getter 함수인 `get__proto__`가 호출된다. `__proto__` 접근자 프로퍼티를 통해 새로운 프로토타입을 할당하면 setter 함수인 `set__proto__`가 호출된다.
 ```js
 const obj = {};
 const parent = { x: 1 };
