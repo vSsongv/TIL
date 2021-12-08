@@ -24,13 +24,26 @@
 >arr.indeOf(2, 2); // 두 번째 요소는 검색을 시작할 인덱스다. 두 번째 인수를 생략하면 처음부터 검색한다.
 >//includes
 >const arr = ['a', 'b', 'c', 'd'];
+> arr.includes('a') //true
 > arr.includes('e') //요소가 존재하지 않다.
 
 ### ♊ `push() & pop() & unshift() & shift()`
 > 📌 **원본 배열을 직접 변경한다.**
 > - `push` : 배열에 인수로 전달받은 모든 값을 배열의 마지막 요소로 추가하고, 변경된 length의 프로퍼티 값을 반환한다. 
+> - `push`는 부수 효과가 있으므로 length 프로퍼티를 이용하여 추가하거나, spread syntax를 사용하는 것이 좋다.
+>```js
+>const arr = [1, 2];
+>const newArr = [...arr, 4]; //원본 배열 유지하면서 마지막에 요소 추가 가능.
+>console.log(newArr); //[1, 2, 4]
+>```
 > - `pop` : 원본 배열에서 마지막 요소로 추가한  요소를 제거하고, 제거한 요소를 반환한다. 
 > - `unshift` : 인수로 전달받은 모든 값을 배열의 선두에 추가하고 변경된 length 프로퍼티 값을 반환한다.
+> - `unshift`는 부수 효과가 있으므로 length 프로퍼티를 이용하여 추가하거나, spread syntax를 사용하는 것이 좋다.
+>```js
+>const arr = [1, 2];
+>const newArr = [3,...arr]; //원본 배열 유지하면서 처음에 요소 추가 가능.
+>console.log(newArr); //[3, 1, 2]
+>```
 > - `shift` : 원본 배열에서 첫 번째 요소를 제거하고 제거한 요소를 반환한다. 
 
 ### ♊ concat()
