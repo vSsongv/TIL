@@ -130,7 +130,8 @@ startIdx부터, endIdx 전까지의 얕은 복사본을 새로운 배열 객체�
 >
 >str.replace('world', 'Lee'); // 'Hello Lee'
 >console.log(str.replace('world', 'Lee')); // 'Hello Lee'
->console.log(str); // Hello world
+>console.log(str.replce(/hello/gi, 'Ssong'); // Ssong World
+>console.log(str); // Hello world(원본 변화 ❌)
 >```
 
 ### 📍 split
