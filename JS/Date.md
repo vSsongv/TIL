@@ -283,7 +283,7 @@ Date 생성자 함수로 생성한 Date 객체는 내부적으로 숫자값을 �
 >
 >console.log(today); // Thu May 16 2019 17:56:08 GMT+0900 (한국 표준시)
 >console.log(time);  // 1557996968335
-
+>
 >dateObj.setTime(time)
 >const today = new Date();
 >
