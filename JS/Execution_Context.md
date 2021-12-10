@@ -115,7 +115,7 @@ foo(20); // 27
 - 전역 코드 평가 과정에서 전역 함수는 `BindingObject`를 통해 전역 객체의 프로퍼티와 메소드가 된다. -> 전역 객체를 가리키는 식별자 없이 객체의 프로퍼티 참조를 가능(`window.alert`를 `alert`로 참조할 수 있는 메커니즘)하게 한다.
 >```js
 >var x = 1;
-.const y = 2;
+>const y = 2;
 >
 >function foo(a) {
 >  ...
