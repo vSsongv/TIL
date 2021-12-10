@@ -13,19 +13,15 @@
 >console.log(Array.isArray(null)); //false
 >```
 
-### ♊ `indexOf() & includes()`
+### ♊ `indexOf()`
 > - 인수로 전달된 요소를 검색하여 인덱스를 반환한다.
-> - 중복되는 요소가 여러 개 있다면 첫번째로 검색왼 요소의 인덱스를 반환한다.
+> - 중복되는 요소가 여러 개 있다면 첫번째로 검색된 요소의 인덱스를 반환한다.
 >```js
 >//indexOf
 >const arr = [1, 2, 2, 3];
 >arr.indexOf(2); //1
 >arr.indexOf(4); //-1 -> 없는 값이므로 -1을 반환한다.
 >arr.indeOf(2, 2); // 두 번째 요소는 검색을 시작할 인덱스다. 두 번째 인수를 생략하면 처음부터 검색한다.
->//includes
->const arr = ['a', 'b', 'c', 'd'];
-> arr.includes('a') //true
-> arr.includes('e') //요소가 존재하지 않다.
 
 ### ♊ `push() & pop() & unshift() & shift()`
 > 📌 **원본 배열을 직접 변경한다.**
@@ -218,7 +214,7 @@
 >];
 >
 >function compare(key) {
->    return (a, b) => (a[key] > b[key] ? 1 : (a[key] < b[key] ? >-1 : 0));
+>    return (a, b) => (a[key] > b[key] ? 1 : (a[key] < b[key] ? -1 : 0));
 >}
 >
 >todos.sort(compare('id'));
@@ -437,5 +433,7 @@ users.find(user => user.id === 2); // {id: 2, name: 'Kim'}
 >console.log(arr1.flatMap((str, index) => >[index, [str, str.length]]));
 >//[[ 0, [ 'hello', 5 ]], 1, [ 'world', 5 ] ]]] => [ 0, [ 'hello', 5 ], 1, [ 'world', 5 ] ]
 ```
+
+> 📌 배열 메소드를 사용할 때는 먼저 `map, filter`로 구현이 가능한지를 생각해 보고, 이들로 안 되면 `reduce`, 를 생각해 보고, 그것도 안 되면 `for of`, 마지막으로 `forEach`를 이용해라.
 
 _<모던 자바스크립트 deepdive를 읽고 정리한 내용입니다.>_
