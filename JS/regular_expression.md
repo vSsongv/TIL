@@ -16,30 +16,30 @@
 
 ### ✒️ 정규 표현식 리터럴
 >![](https://images.velog.io/images/songjy377/post/0169d029-3354-4196-aafd-0791cff4ff6b/image.png)
-```js
-const target = 'Is this all there is?';
-//패턴 : is
-//플래그: i => 대소문자를 구별하지 않고 검색한다.
-const regexp = /is/i;
-
-regexp.test(target); // true
-```
+>```js
+>const target = 'Is this all there is?';
+>//패턴 : is
+>//플래그: i => 대소문자를 구별하지 않고 검색한다.
+>const regexp = /is/i;
+>
+>regexp.test(target); // true
+>```
 
 ### ✒️ RegExp 생성자 함수
 >```js
 > new RegExp(pattern [, flags])
 >```
-
-```js
-const target = 'Is this all there is?';
-const regexp = new RegExp(/is/i);
-regexp.test(target); //true
-```
-- 동적으로 RegExp 객체를 생성할 수 있다.
-```js
-const count = (str, char) => (str.match(new RegExp(char, 'gi')) ?? []).length;
-console.log(count('is this is good', 'is')); //3
-```
+>
+>```js
+>const target = 'Is this all there is?';
+>const regexp = new RegExp(/is/i);
+>regexp.test(target); //true
+>```
+>- 동적으로 RegExp 객체를 생성할 수 있다.
+>```js
+>const count = (str, char) => (str.match(new RegExp(char, 'gi')) ?? []).length;
+>console.log(count('is this is good', 'is')); //3
+>```
 
 ## 🖋️ RegExp 메서드
 ### ✒️ `exec`
