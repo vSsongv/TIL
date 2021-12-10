@@ -156,7 +156,7 @@
 >const target = 'A AA B BB Aa Bb AAA';
 >const regExp = /A|B/g;
 >target.match(regExp); // [ 'A', 'A', 'A', 'B', 'B', 'B', 'A', 'B', 'A', 'A', 'A' ]
->범위를 지정하려면 [] 내에 -를 사용한다.
+>// 범위를 지정하려면 [] 내에 -를 사용한다.
 >
 >const target = 'A AA B BB Aa Bb AAA';
 >const regExp = /[A-Z]+/g; // 대문자 판별 정규 표현식
