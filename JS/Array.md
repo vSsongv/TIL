@@ -159,7 +159,7 @@
 >console.log(arr.fill(0, 1, 2)); //[ 1, 0, 3, 4 ]
 >
 >//fill 메서드로는 하나의 값만으로밖에 채울 수가 없다.
->//두 번째 인수로 콜백 함수를 사용해서 인덱스를 이용해 다른 값들을 가지는 >배열을 생성할 수 있다.
+>//두 번째 인수로 콜백 함수를 사용해서 인덱스를 이용해 다른 값들을 가지는 배열을 생성할 수 있다.
 >const seq = (length = 0) => Array.from({ length }, (_, i) => i);
 >console.log(seq(5)); //[ 0, 1, 2, 3, 4 ]
 >```
@@ -201,7 +201,7 @@
 >
 >const arr = [40, 100, 1, 5, 2, 25, 10];
 >
->console.log(arr.sort()); //[1, 10, 100, 2, 25, 40, 5] -> 숫자 >크기대로 정렬되지 않는다.
+>console.log(arr.sort()); //[1, 10, 100, 2, 25, 40, 5] -> 숫자 크기대로 정렬되지 않는다.
 >// 비교 함수의 반환값이 0보다 작으면 a를 우선하여 정렬한다.
 >// 내림차순은 b - a로 변경하면 된다.
 >arr.sort((a, b) => a - b);
@@ -250,8 +250,8 @@
 >class Number {
 >    numberArray = [];
 >    multiply(arr) {
->        //화살표 함수 내부에서 this를 참조하면 상위 스코프의 >this를 그대로 참조한다.
->        arr.forEach(item => this.numberArray.push(item * item))>;
+>        //화살표 함수 내부에서 this를 참조하면 상위 스코프의 this를 그대로 참조한다.
+>        arr.forEach(item => this.numberArray.push(item * item));
 >    }
 >}
 >
@@ -266,7 +266,7 @@
 >```js
 >const numbers = [1, 4, 9];
 >const roots = numbers.map(item => Math.sqrt(item));
->console.log(roots); // [1, 2, 3] -> 배열의 요소를 순회하면서 >새로운 배열 반환
+>console.log(roots); // [1, 2, 3] -> 배열의 요소를 순회하면서 새로운 배열 반환
 >console.log(numbers); // [1, 4, 9] -> 원본 안 바뀜
 >
 >// map(요소값, 인덱스, this)
@@ -347,7 +347,7 @@
 >```js
 >//reduce(콜백 함수, 초기값(✔️옵션))
 >// 누적 합 
->const sum = [1, 2, 3, 4].reduce((accumulator, currentValue, >index, array) => accumulator + currentValue, 0);
+>const sum = [1, 2, 3, 4].reduce((accumulator, currentValue, index, array) => accumulator + currentValue, 0);
 >console.log(sum); // 10
 >
 >//reduce를 활용한 평균 값 구하기
@@ -435,5 +435,3 @@ users.find(user => user.id === 2); // {id: 2, name: 'Kim'}
 ```
 
 > 📌 배열 메소드를 사용할 때는 먼저 `map, filter`로 구현이 가능한지를 생각해 보고, 이들로 안 되면 `reduce`, 를 생각해 보고, 그것도 안 되면 `for of`, 마지막으로 `forEach`를 이용해라.
-
-_<모던 자바스크립트 deepdive를 읽고 정리한 내용입니다.>_
