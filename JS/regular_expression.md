@@ -133,7 +133,7 @@
 >
 >//{n,}은 앞선 패턴이 최소 n번 이상 반복되는 문자열을 의미한다.
 >const regExp3 = /A{2,}/g;
->console.log(target.match(regExp2));// [ 'AA', 'AA' ]
+>console.log(target.match(regExp2));// [ 'AA', 'AAA' ]
 >
 >// +는 앞선 패턴이 최소 한번 이상 반복되는 문자열을 의미한다.즉, +는 { 1,}과 같다.
 >const target = 'A AA B BB Aa Bb AAA';
