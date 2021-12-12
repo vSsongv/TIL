@@ -289,3 +289,7 @@
 >// 특수 문자 제거
 >console.log(targetStr.replace(regexr, '')); // abc123
 >```
+
+https://gocoding.tistory.com/93
+
+https://highcode.tistory.com/6
