@@ -394,18 +394,18 @@
 > - 자신을 호출한 배열의 요소를 순회하면서 인수로 전달된 콜백 함수를 호출하여 **반환값이 true인 첫 번째 요소를 반환**한다.
 > - `this` 전달 가능
 > - 콜백 함수의 반환값이 `true`인 요소가 존재하지 않는다면 `undefined`를 반환한다.
-```
-const users = [
-  { id: 2, name: 'Kim' },
-  { id: 2, name: 'Choi' }
-];
-//id가 2인 첫번째 요소 반환
-users.find(user => user.id === 2); // {id: 2, name: 'Kim'}
-//filter 메서드는 배열을 반환한다.
-[1, 2, 3, 4].filter(item => item === 2); //[2, 2]
-//find 메서드는 요소를 반환한다.
-[1, 2, 3, 4].filter(item => item === 2); //2
-```
+>```js
+>const users = [
+>  { id: 2, name: 'Kim' },
+>  { id: 2, name: 'Choi' }
+>];
+>//id가 2인 첫번째 요소 반환
+>users.find(user => user.id === 2); // {id: 2, name: 'Kim'}
+>//filter 메서드는 배열을 반환한다.
+>[1, 2, 3, 4].filter(item => item === 2); //[2, 2]
+>//find 메서드는 요소를 반환한다.
+>[1, 2, 3, 4].filter(item => item === 2); //2
+>```
 
 ### ✡️ `findIndex()`
 > - 자신을 호출한 배열의 요소를 순회하면서 인수로 전달된 콜백 함수를 호출하여 **반환값이 true인 첫 번째 요소의 인덱스를 반환**한다. 콜백 함수의 반환값이 **true인 요소가 존재하지 않는다면 -1을 반환**한다.
