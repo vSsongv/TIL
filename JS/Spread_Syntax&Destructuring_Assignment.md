@@ -110,8 +110,13 @@ const user = { firstName: 'Jinyoung', lastName: 'Song' };
 const { lastName, firstName } = user;
 
 console.log(firstName, lastName); // Jinyoung Song
+
+// 프로퍼티 키와 다른 이름으로 프로퍼티 값을 할당받을 수 있다.
+const { lastName: ln, firstName: fn } = user;
+
+console.log(ln, fn) //Jinyoung Song
 ```
-//변수에 기본값을 설정할 수 있다.
+- 변수에 기본값을 설정할 수 있다.
 ```js
 const { firstName = 'Jinyoung', lastName } = { lastName = 'Ssong' }; //Jinyoung Ssong
 ```
@@ -127,8 +132,7 @@ const { firstName = 'Jinyoung', lastName } = { lastName = 'Ssong' }; //Jinyoung 
  const [, {id}] = todos;
  console.log(id); //2
 ```
-
-    - 중첩 객체인 경우 다음과 함께 사용한다.
+- 중첩 객체인 경우 다음과 함께 사용한다.
 ```js
 const user = {
     name: 'Ssong',
