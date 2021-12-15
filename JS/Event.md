@@ -419,13 +419,35 @@ Handler for body.
 >```
 >❗ 화살표 함수로 정의한 내부 this는 상위 스코프의 this를 가리킨다. 
 > ❗ 클래스에서 이벤트 핸들러를 바인딩하는 경우 bind 메서드를 사용하여, 함수의 메서드가 클래스가 생성할 인스턴스를 가리키도록 해야 한다. 
-## 코드 추가하기.
-    class App {
-        constructor() {
-            this.$button = document.querySelector('.btn');
-            this.count = 0;
-        }
-    }
+>```js
+><script>
+>    class App {
+>        constructor() {
+>            this.$button = document.querySelector('.btn');
+>            this.count = 0;
+>
+>            //increase 메서드를 이벤트 핸들러로 등록
+>            this.$button.onclick = this.increase;
+>        }
+>
+>        increase() {
+>            //이벤트 핸들러 increase 내부의 this는 DOM요소(this.$button)를 가리킨다.
+>            //따라서 this.$button은 this.$button.$button과 같다.
+>            this.$button.textContent = ++this.$button;
+>            // -> TypeError: Cannot set property 'textContent' of undefined
+>        }
+>    }
+></script>
+>```
+>- 위와 같은 코드에서는 `increase` 메서드 내부의 this는 `this.this.$button`을 가리키므로,
+>```js
+>this.$button.onclick = this.increase;
+>```
+>부분을
+>```js
+>this.$button.onclick = >this.increase.bind(this);
+>```
+>로 바꿔줘야 한다.
 
 ## ⭐ 이벤트 핸들러에 인수 전달
 > - 이벤트 핸들러 내부에서 함수를 호출하면서 인수를 전달할 수 있다.
