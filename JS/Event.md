@@ -142,7 +142,6 @@ _그림출처 [poiemaweb](https://poiemaweb.com/)_
     </script>
 ```
 - `addEventListener` 메서드는 하나 이상의 이벤트 핸들러를 등록할 수 있으며, 등록된 순서대로 호출된다. 
-- ❗ 단, 동일한 이벤트를 중복 등록하면 하나의 이벤트 핸들러만 등록된다.
 ```js
  <button>Click me!</button>
   <script>
@@ -150,10 +149,23 @@ _그림출처 [poiemaweb](https://poiemaweb.com/)_
     $button.addEventListener('click', function() { 
     	console.log('button clicked 1'); 
     });
-   // event
+   //하나 이상의 핸들러 등록 가능.
     $button.addEventListener('click', function() { 
     	console.log('button clicked 2'); 
     });
+  </script>
+```
+- ❗ 단, 동일한 이벤트를 중복 등록하면 하나의 이벤트 핸들러만 등록된다.
+```js
+ <button>Click me!</button>
+  <script>
+    const $button = document.querySelector('button');
+    const handleClick = () => console.log('button click');
+
+   // event
+    $button.addEventListener('click', handleClick);
+    // 동일한 이벤트를 등록하면 하나의 핸들러만 등록된다.
+    $button.addEventListener('click', handleClick);
   </script>
 ```
 
