@@ -363,7 +363,31 @@
 >```
 
 ## 🌳 노드 정보 취득
+>|프로퍼티 | 설명|
+>|--|--|
+>`nodeType` |노드 객체의 종류, 즉 노드 타입을 나타내는 상수를 반환한다. <br> `Node.ELEMENT_NODE` : 요소 노드 타입을 나타내는 상수 1을 반환 <br> `Node.TEXT_NODE` : 텍스트 노드 타입을 나타내는 상수 3을 반환 <br> `Node.DOCUMENT_NODE` : 문서 노드 타입을 나타내는 상수 9를 반환
+>`nodeName` |노드의 이름을 문자열로 반환한다. <br> ** 요소 노드** :  대문자 문자열로 태그 이름("UL", "LI")등을 반환 <br> **텍스트 노드** : "#text"를 반환 <br> **문서 노드** : 문자열 #document"를 반환
+>```js
+><body>
+>    <div id="foo">Hello</div>
+></body>
+><script>
+>    console.log(document.nodeType); //9
+>    console.log(document.nodeName); //#document
+>
+>    const $foo = document.getElementById('foo');
+>    console.log($foo.nodeType); //1
+>    console.log($foo.nodeName); //DIV
+>
+>    const $textNode = $foo.firstChild;
+>    console.log($textNode.nodeType); //3
+>    console.log($textNode.nodeName); //#text
+></script>
+>```
 
+## 🌳 요소 노드의 텍스트 조작
+### 🌿 nodeValue
+> - `setter`, `getter` 모두 존재하는 접근자 프로퍼티다. 참조와 할당 모두 가능하다.
 
 노드 조작
 다음과 같은 DOM API를 이용해 새로운 노드를 생성해 DOM에 추가하거나 기존 노드를 삭제 또는 교체할 수 있다.
