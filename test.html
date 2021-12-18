@@ -13,7 +13,8 @@
   <script>
     // html 마크업은 무시하고 #foo 요소 노드의 텍스트를 모두 취득한다.
     console.log(document.getElementById('foo').textContent); // Hello World!
+    // #foo의 요소 노드의 모든 자식 노드가 제거되고 할당한 문자열이 텍스트로 추가된다.
     document.getElementById('foo').textContent = '<div id="foo">Hello <span>test</span></div>';
-    console.log(document.getElementById('foo').textContent); // test
+    //<div id="foo">Hello <span>test</span></div> -> html이 파싱되지 않는다.
   </script>
 </html>
