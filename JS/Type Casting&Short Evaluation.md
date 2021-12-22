@@ -160,10 +160,11 @@ Boolean(undefined); // false
 2. ! 부정 논리 연산자를 두 번 사용하는 방법
 
 ```js
-!!'x'; // true
-!!'false'; // false
-!!1; //true
-!!null; // false
+	!!'x'; // true
+	!!'false'; // true
+	!!1 //true
+	!!'' //false
+	!!null; // false
 ```
 
 ## ✅ 단축 평가
