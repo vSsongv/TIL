@@ -48,7 +48,7 @@
 ![](https://images.velog.io/images/songjy377/post/e787638b-9fb0-45f0-b060-00bfc7e13fbd/image.png)
 👉🏻 `scrollTop`, `scrollLeft` 값은 수정이 가능하다. 즉 `scrollTop`을 0이나 1e9같은 아주 큰 숫자로 설정해 스크롤바를 최상단이나 최하단으로 옮길 수 있다.
 
-### ❌ `getComputedStyle` 을 사용하지 마라
+### ❌ `getComputedStyle` 로 너비와 요소를 얻지 마라
 - `getComputedStyle`를 사용해 CSS가 적용된 요소의 높이와 너비를 구할 수 있다. 하지만 기하 프로퍼티를 사용해 너비와 높이 정보를 얻어야 하는 이유가 있다.
 
 1. CSS `width`와 `height`는 다른 CSS 프로퍼티의 영향을 받는다. 요소의 너비와 높이 계산 방법을 '지정’하는 `box-sizing`이 이런 프로퍼티의 대표적인 예이다. 따라서 `box-sizing`을 변경하면 `getComputedStyle`로 구한 값이 부정확해 질 수 있다.
