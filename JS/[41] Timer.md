@@ -4,7 +4,7 @@
 ## ⏲️ Timer 함수
 일정 시간이 지난 후에 함수를 호출하고 싶을 때, 즉 함수 호출을 예약하려면 타이머 함수를 사용한다. 
 이를 호출 스케줄링이라고 한다.
-`setTimeout, setInterval ` 로는 타이머를 생성하고, `clearTimeout, clearInterval` 으로는 타이머를 제거할 수 있다. 타이머 함수는 ECSMAScript에 정의된 빌트인 함수가 아닌, 호스트 객체이다.
+`setTimeout, setInterval` 로는 타이머를 생성하고, `clearTimeout, clearInterval` 으로는 타이머를 제거할 수 있다. 타이머 함수는 ECSMAScript에 정의된 빌트인 함수가 아닌, 호스트 객체이다.
 
 ### ⌚ `setTimeout`
 - `setTimeout` 함수는 두 번째 인수로 전달받은 시간(ms, 1/1000초)으로 **단 한 번** 동작하는 타이머를 생성한다. 이후 타이머가 만료되면 첫 번째 인수로 전달받은 콜백함수가 호출된다.
@@ -19,6 +19,7 @@ setTimeout(() => console.log('Hi!'), 1000);
 setTimeout(name => console.log(`Hi! ${name}.`), 1000, 'Lee');
 ```
 - 두 번째 인수(delay)를 생략하면 기본값 0이 지정된다.
+- 0으로 지정하더라도 기본적으로 4ms로 지정된다.
 ```js
 setTimeout(() => console.log('Hello!'));
 ```
