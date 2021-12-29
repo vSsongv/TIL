@@ -107,7 +107,7 @@ GET : /users/{userid}/devices (일반적으로 소유 ‘has’의 관계를 표
 GET : /users/{userid}/likes/devices
 ```
 
-## 💠 자원을 표시하는 Collection과 Document
+### 💠 자원을 표시하는 Collection과 Document
 - 아래와 같은 URI가 있을 때, 
 ```
 http:// restapi.example.com/sports/soccer/players/13
