@@ -341,7 +341,7 @@ const promise = fetch(url, [, options])
 ```js
 fetch('http//js.test.com//todos/1').then(response => console.log(response));
 ```
-- `Response.prototype` Response 객체에 포함되어 있는 HTTP 응답 몸체를 위한 다양한 메서드를 제공한다. 예를 들어 MIME 타입이 application/json인 HTTP 응답 몸체를 취득하려면 `Response.prototype.json` 메서드를 사용한다. 이는 response body를 역직렬화한다.
+- `Response.prototype` 에는 Response 객체에 포함되어 있는 HTTP 응답 몸체를 위한 다양한 메서드를 제공한다. 예를 들어 MIME 타입이 application/json인 HTTP 응답 몸체를 취득하려면 `Response.prototype.json` 메서드를 사용한다. 이는 response body를 역직렬화한다.
 
 - ❗`fetch` 함수를 사용할 때는 에러 처리에 주의해야 한다. 
   - 404, Not Found 같은 HTTP 에러를 reject 하지 않고, ok의 상태를 false로 설정한 객체를 resolve 한다. 
@@ -376,10 +376,11 @@ const request = {
       method:'patch',
       headers: {'content-Type':'application/json'},
       body: JSON.stringify(payload)
-    })},
-    delete(url) {
-      return fetch(url, {method: DELETE});
-      } 
+    })
+  },
+  delete(url) {
+    return fetch(url, {method: DELETE});
+  } 
 };
 
 //get
