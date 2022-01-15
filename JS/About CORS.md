@@ -13,7 +13,7 @@ _<[출처: mozilla](https://developer.mozilla.org/ko/docs/Web/HTTP/CORS)>_
 ![](https://images.velog.io/images/songjy377/post/13be910b-bf0e-4547-8076-b50a114f5d27/image.png)
   - scheme: http/https
   - host: velog.io
-  - port : 88, 9000(HTTP의 기본 포트는 80)
+  - port : 88, 9000(HTTP의 기본 포트는 80, HTTPS는 443)
 
 - 이 세 가지가 모두 같은 경우 same-origin이라고 한다. 
 - 아래의 두 URL은 같은 출처이다.
@@ -131,7 +131,7 @@ X-UA-Compatible: IE=Edge
 
 ### 🔑 Access-Control-Allow-Origin 세팅
 - HTTP 응답헤더 `Access-Control-Allow-Origin : *` 혹은 `Access-Control-Allow-Origin: 허용하고자 하는 도메인` 값을 주는 방법이다.
-- *은 보안적 이슈가 발생할 수도 있으니 출처를 명시하는 것이 좋다.
+- \* 은 모든 요청을 허용하겠다는 의미로, 보안적 이슈가 발생할 수도 있으니 출처를 명시하는 것이 좋다.
 
 ### 🔑 Webpack Dev Server로 리버스 프록싱
 -프론트엔드 개발자는 대부분 웹팩과 webpack-dev-server를 사용하여 자신의 머신에 개발 환경을 구축하게 되는데, 이 라이브러리가 제공하는 프록시 기능을 사용하면 아주 편하게 CORS 정책을 우회할 수 있다.
