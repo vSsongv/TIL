@@ -24,6 +24,7 @@
 ### 🧱 grid-template-areas
 - 행렬 형태로 입력하여 grid 형태를 지정할 수 있다.
 - name으로 구분하여 지정해준다. ```grid-area: name```
+
 ![](https://images.velog.io/images/songjy377/post/4c7967f5-bc63-46b7-b62e-1903a4c93b0e/image.png)
 ```html
 -html-
@@ -87,12 +88,14 @@
     grid-area: ft;
 }
 ```
+
 ![](https://images.velog.io/images/songjy377/post/0c70a3b5-efd1-46ae-a71f-3da004f649e5/image.png)
 ### 🧱 row-gap/colunm-gap
 - 각각의 행/열의 갭을 지정한다.
 ```row-gap: 20px / column-gap: 50px```
 - gap으로 한번에 작성 가능하다. 순서는(row-col)이다.
 ```gap: 20px 50px;```
+
 ![](https://images.velog.io/images/songjy377/post/19471d1d-1fd7-4c4d-95bb-8f920d813f46/image.png)
 ### 🧱 grid-auto-rows / grid-auto-columns
 - 추가된 행/열에 대하여 암시적으로 높이/너비를 지정할 수 있다.
@@ -103,9 +106,11 @@
 ```grid-auto-flow: column;/row;```
 - **dense**: 남는 공간을 채우도록 한다. 
 ```grid-auto-flow: row dense/column dense```
+
 ![](https://images.velog.io/images/songjy377/post/3e24de23-f38f-4e3a-ae45-e49ae1d3e458/image.png)
 ### ✅ grid-shorthand
 - 초기값
+
 ![](https://images.velog.io/images/songjy377/post/a459d570-f04e-4d1b-8584-4838db89e765/image.png)
 - '/'를 기준으로 앞쪽은 row에 대한 정의, 뒤쪽은 column에 대한 정의이다.
 - auto-flow값을 주고 싶다면 row part, column part 앞쪽에 auto-flow라고 적어주면 된다. 
@@ -135,17 +140,22 @@
 ### 🧱 justify-content
 - 바깥 container의 크기가 items들 보다 커서, 남는 공간이 남은 상태여야 한다.
 - main-axis을 기준으로 items를 어떻게 정렬할지 정한다.
+
 ![](https://images.velog.io/images/songjy377/post/1b00192a-5130-4e0b-905f-46547b2efe10/image.png)
 ### 🧱 align-content
 - corss-axis을 기준으로 items를 어떻게 정렬할지 정한다.
+
 ![](https://images.velog.io/images/songjy377/post/2beb46eb-f7ba-4f1f-bb4b-d863167e938b/image.png)
 - justify + align 둘 다 center로 주면 정가운데에 위치한다.
+
 ![](https://images.velog.io/images/songjy377/post/60f3c0bc-c63a-47e3-9abc-1fbd93c5a205/image.png)
 ### 🧱 justify-items
 - width를 지정하지 않는 경우, 기본값은 stretch이지만, width나 justify-items를 지정하는 경우 요소는 그 width만큼/해당 content의 가로 길이만큼만 차지하게 된다.
+
 ![](https://images.velog.io/images/songjy377/post/c2783c99-fc69-423d-872d-c021e644051f/image.png)
 ### 🧱 align-items
 - height를 지정하지 않는 경우, 기본값은 stretch이지만, height나 align-items를 지정하는 경우 요소는 그 height만큼/해당 content의 가로 길이만큼만 차지하게 된다.
+
 ![](https://images.velog.io/images/songjy377/post/799dca28-e8b7-4a44-9fed-6f24762433b7/image.png)
 ## 🏠 Grid items
 ### 🧱 grid-row 
@@ -173,12 +183,14 @@ grid-row: 1/3;
 - order의 값이 동일한 경우 코드 순서가 앞에 있는 요소가 앞에 온다.
 ### 🧱 z-index
 - grid container내에서도 z-index 사용이 가능하다.
+
 ![](https://images.velog.io/images/songjy377/post/4fb8b8f1-186b-4677-a501-265164c4cf7a/image.png)
 ### 🧱 fr, min-content, max-content
 - fr: 비율을 사용해서 나눌 때 사용하는 단위(1fr 2fr)
 - min-content: content중에 가장 긴 단위에 기준을 맞춘다.
 - max-content: content를 한 줄로 볼 수 있을 정도로 늘린다.
 -**min-content나 max-content로 길이를 지정하고 나면 남은 부분을 비율에 따라 나눠갖는다.**
+
 ![](https://images.velog.io/images/songjy377/post/6c711bf8-3f0a-4576-b3c5-e0f4bdf08389/image.png)
 ### 🧱 auto-fill
 - 남는 공간에 자동으로 content가 채워지게 된다.
