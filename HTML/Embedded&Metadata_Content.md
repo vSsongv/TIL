@@ -130,15 +130,15 @@
 -   외부 리소스의 관계를 명시한다. 예를 들어, css나 icon을 html에 추가할 때 사용한다.
 
 ```
-  	<link href="main.css" rel="stylesheet"> -외부 스타일시트 연결
-  	<link rel="icon" href="favicon.ico"> -아이콘
+  <link href="main.css" rel="stylesheet"> -외부 스타일시트 연결
+  <link rel="icon" href="favicon.ico"> -아이콘
 ```
 
 -   MIME type
     html이 어떤 파일인지 인지하도록 하기 위해(파일 경로를 인지하지 못하는 경우를 위해) type을 명시해주는 것.
 
 ```
-   	text/plain, text/html, image/jpeg, image/png
+   text/plain, text/html, image/jpeg, image/png
 ```
 
 ### 📌 &lt;script> tag
@@ -146,5 +146,5 @@
 -   외부 javascript 코드를 불러올 때 사용한다.
 -   보통 body의 가장 마지막에 위치시키는 것을 권장한다.
 ```
-    &lt;script src="javascript.js">&lt;/script>
+    <script src="javascript.js"></script>
 ```
