@@ -145,5 +145,6 @@
 
 -   외부 javascript 코드를 불러올 때 사용한다.
 -   보통 body의 가장 마지막에 위치시키는 것을 권장한다.
-
+```
     &lt;script src="javascript.js">&lt;/script>
+```
