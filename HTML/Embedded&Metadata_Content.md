@@ -18,7 +18,7 @@
 
 ![](https://images.velog.io/images/songjy377/post/63a1461f-0cce-4cc5-ab74-5d5e72a9c52a/image.png)
 
-### 🖼️ &ltimg> tag
+### 🖼️ &lt;img> tag
 
 ```
 <img class="fit-picture"
