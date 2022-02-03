@@ -6,7 +6,7 @@
 ### 🖌️opacity
  - 요소 자체(글씨, 배경색 모두 포함)의 불투명도를 설정한다. 초기값은 1로, 뒤의 요소가 하나도 보이지 않는다.
  ![](https://images.velog.io/images/songjy377/post/085ee890-d963-4c6b-90dc-f06d3bb2f160/image.png)
- - 상속되지 않는다.
+ - **상속되지 않는다.**
  - **자식 요소는 불투명하게 유지하고 싶다면 background 속성을 대신 사용하자.*** ```background: rgba(0, 0, 0, 0.4);```
 ```
    div { background-color: yellow; }
@@ -25,7 +25,7 @@
 ```background-color: hsla(50, 33%, 25%, 0.75);  /* 75% 불투명도 */```
 -  **background-image 뒤**에 렌더링 된다.
 ## 🎨 background-image
-- 요소의 배경 이미지를 한 개나 여러 개 지정합니다.
+- 요소의 배경 이미지를 한 개나 여러 개 지정한다.
 ```
 background-image:
   linear-gradient(to bottom, rgba(255,255,0,0.5), rgba(0,0,255,0.5)),
@@ -89,8 +89,11 @@ background-image:
 ![](https://images.velog.io/images/songjy377/post/a20edc4a-a7d0-4c95-9c35-8e9ec1f5d912/image.png)
 ### <속성>
 **contain** : 이미지가 잘리거나 찌그러지지 않는 한도 내에서 제일 크게 설정. 빈 공간 생길 수 있음. 기본으로 repeat됨.
+
 **cover** : 이미지가 찌그러지지 않는 한도 내에서 제일 크게 설정. 이미지의 가로세로비가 요소와 다르다면 이미지를 **세로 또는 가로방향으로 잘라내어** 빈 공간이 생기지 않도록 설정.
+
 **percantage** : 이미지가 찌그러지지 않는 한도 내에서 제일 크게 설정하지만, **가로에 맞춘다.**
+
 **length** : 원본 크기의 너비/높이를 주어진 값으로 늘리거나 줄임. 음수는 유효하지 않음.
 
 ### ✅ background-shorthand
