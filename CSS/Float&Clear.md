@@ -5,14 +5,19 @@
 ### <값>
 
 -   left
-    요소가 자신의 포함(containing) 블록의 좌측에 부동(float, 떠움직여)해야 함을 나타내는 키워드.
+
+    요소가 자신의 포함(containing) 블록의 좌측에 부동(float)해야 함을 나타내는 키워드.
 -   right
+
     요소가 자신의 포함 블록의 우측에 부동해야 함을 나타내는 키워드.
 -   none
+
     요소가 부동하지 않아야 함을 나타내는 키워드.
 -   inline-start
+
     요소가 자신의 포함 블록의 시작쪽에 부동해야 함을 나타내는 키워드. 즉, ltr(left to right) 스크립트 상에서 왼쪽 그리고 rtl(right to left) 스크립트 상에서는 오른쪽.
 -   inline-end
+
     요소가 자신의 포함 블록의 끝쪽에 부동해야 함을 나타내는 키워드. 즉, ltr 스크립트 상에서 오른쪽 그리고 rtl 스크립트 상에서는 왼쪽.
 
 ## ❓ How Float works?
@@ -49,23 +54,29 @@
 ### <값>
 
 -   none
+
     요소가 지난 부동 요소를 해제하기 위해 아래로 이동되지 않음을 나타내는 키워드.
 -   left
+
     요소가 지난 left 부동체를 해제하기 위해 아래로 이동됨을 나타내는 키워드.
 -   right
+
     요소가 지난 right 부동체를 해제하기 위해 아래로 이동됨을 나타내는 키워드.
 -   both
+
     요소가 지난 both left 및 right 부동체를 해제하기 위해 아래로 이동됨을 나타내는 키워드.
 -   inline-start
-    요소가 포함 블록의 시작 쪽 부동체를 해제하기 위해 아래로 이동됨을 나타내는 키워드. 즉 ltr 스크립트의 left 부동체 및 rtl 스크립트의 right 부동체.
+
+    요소가 포함 블록의 시작 쪽 부동체를 해제하기 위해 아래로 이동됨을 나타내는 키워드.
 -   inline-end
-    요소가 포함 블록의 끝 쪽 부동체를 해제하기 위해 아래로 이동됨을 나타내는 키워드. 즉 ltr 스크립트의 right 부동체 및 rtl 스크립트의 left 부동체.
+
+    요소가 포함 블록의 끝 쪽 부동체를 해제하기 위해 아래로 이동됨을 나타내는 키워드.
 
 ✔️ **footer에 clear: both를 사용하면 해당 요소가 float요소들의 영향을 받지 않고 아래에 위치할 수 있다.**
 
 ![](https://images.velog.io/images/songjy377/post/a8839960-5dd6-4275-8ac0-bf0251648402/image.png)
 
-### ✔️ float 사용 시 사라진 부모height 값을 살리려면?
+### ✔️ float 사용 시 사라진 부모 height 값을 살리려면?
 
 ### ❗ 가상 요소 선택자 이용
 
@@ -145,7 +156,7 @@
 > }
 > ```
 >
-> <span style="color:red">**but 해당 요소 안의 컨텐츠를 박스 외부로 표현해줄 수 없는 경우가 있다. auto를 쓰면 스크롤이 생겨서 보기에 좋지 않을수도 있다.**<span> > ![](https://images.velog.io/images/songjy377/post/cb5c90a5-fc9f-43d0-ab1f-d6c1cdb3bd0d/image.png)
+> <span style="color:red">**but 해당 요소 안의 컨텐츠를 박스 외부로 표현해줄 수 없는 경우가 있다. auto를 쓰면 스크롤이 생겨서 보기에 좋지 않을수도 있다.**</span> ![](https://images.velog.io/images/songjy377/post/cb5c90a5-fc9f-43d0-ab1f-d6c1cdb3bd0d/image.png)
 
 ### ❗ Flow-root
 
@@ -158,7 +169,7 @@
 > }
 > ```
 >
-> <span style="color:red">**IE에서는 지원 불가! **<span> > ![](https://images.velog.io/images/songjy377/post/a57760a2-ea5b-4a3b-9815-dfa270e433e6/image.png)
+> <span style="color:red">**IE에서는 지원 불가!**</span> ![](https://images.velog.io/images/songjy377/post/a57760a2-ea5b-4a3b-9815-dfa270e433e6/image.png)
 
 ### ❗ 부모요소를 float 시키기
 
