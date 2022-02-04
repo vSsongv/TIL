@@ -199,6 +199,6 @@ grid-template-columns: repeat(auto-fill, 100px);
 grid-auto-rows: 50px;
 ```
 #### ✅ minmax(min, max)
--> 아무리 작아도 min의 값은 유지하도록 하고, min보다 커지면 max의 값을 가져라.
+- 아무리 작아도 min의 값은 유지하도록 하고, min보다 커지면 max의 값을 가져라.
 ### 🧱 auto-fit
 - **content가 없어서 빈 공간이 생길 때**, 빈 공간이 생기지 않도록 전부 다 꽉 채운다.
