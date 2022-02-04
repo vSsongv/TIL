@@ -66,5 +66,5 @@
 ### 🎗️ word-break
   - 텍스트가 자신의 콘텐츠 박스 밖으로 넘어갈 때 박스 밖으로 나갈지, 줄바꿈을 할지 지정한다. 한중일 언어는 기본적으로 break-all속성이다.
   - 언어에 따라 기본값이 다르기 때문에 **break-all, keep-all**으로 설정이 가능하다.
-break-all : 가로 크기에 맞게 자른다.
-keep-all : overflow가 나도 무시한다.
+      - break-all : 가로 크기에 맞게 자른다.
+      - keep-all : overflow가 나도 무시한다.
