@@ -57,7 +57,8 @@
 ![](https://images.velog.io/images/songjy377/post/072dc09f-a58d-467b-9083-beba672a43b3/image.png)
 - 모든 노드 객체는 `Object, EventTarget, Node` 인터페이스를 상속받는다. 이벤트와 관련된 기능은 `EventTarget` 인터페이스가 제공하고, 노드로서 트리 탐색이나 노드 정보 제공 등의 노드 관련 기능은 Node 인터페이스가 제공한다.
 - 또한 문서 노드는 `Document, HTMLDocument` 인터페이스를 상속받고, 요소 노드는 `Element, HTMLElement` 인터페이스를 상속받는다. 어트리뷰트 노드는 `Attr`, 텍스트 노드는 `CharacterData` 인터페이스를 각각 상속받는다.
-- 예를 들어, `input` 요소를 파싱하여 객체화한 `input` 요소 노드 객체는 `HTMLInputElement, HTMLElement, Element, Node, EventTarget, Object`의 prototype에 바인딩되어 있는 프로토타입 객체를 상속받는다. -> 즉 `input` 요소 노드 객체는 프로토타입 체인의 모든 프로토타입의 프로퍼티나 메서드를 상속받아 사용할 수 있다.
+- 예를 들어, `input` 요소를 파싱하여 객체화한 `input` 요소 노드 객체는 `HTMLInputElement, HTMLElement, Element, Node, EventTarget, Object`의 prototype에 바인딩되어 있는 프로토타입 객체를 상속받는다. 
+- 즉 `input` 요소 노드 객체는 프로토타입 체인의 모든 프로토타입의 프로퍼티나 메서드를 상속받아 사용할 수 있다.
 - 배열이 객체인 동시에 배열인 것처럼, input요소 노드 객체도 다음과 같이 다양한 특성을 갖는 객체이며, 이러한 특성을 나타내는 기능들을 상속을 통해 제공받는다.
 
 |input 요소 노드 객체의 특성|프로토타입을 제공하는 객체|
@@ -564,4 +565,96 @@ const $shallowClone = $apple.cloneNode(true); //깊은복사
 >```
 
 ## 🎁 `Attribute`
-### 🎀 attribute와 attribute 프로퍼티
+### 🎀 attribute와 attributes 프로퍼티
+> - html tag 내부에 attribute name = "attibute value" 형식으로 정의한다.
+> <br>`<input id="user" type="text" value="Ssong">`
+>- HTML 문서가 파싱될 때 HTML 요소의 어트리뷰트는 어트리뷰트 노드로 변환되고, 요소 노드의 연결된다. 이때 하나의 HTML 어트리뷰트당 하나의 어트리뷰트 노드가 생성된다.
+>- **이때 모든 어트리뷰트 노드의 참조는 유사 배열 객체이자 이터러블인 NamedNodeMap 객체에 담겨서 요소 노드의 attributes 프로퍼티에 저장된다.**
+>
+>![](https://images.velog.io/images/songjy377/post/4b49dff1-dbff-4ce4-98f8-1f06bd5a990a/image.png)
+>- 따라서 요소 노드의 모든 어트리뷰트 노드는 `Element.prototype.attributes` 프로퍼티로 취득할 수 있다.
+
+### 🎀 attribute 조작
+> - `getAttribute` : 어트리뷰트 값 참조
+> - `setAttribute` : 어트리뷰트 값 변경
+>```html
+>  <body>
+>    <input type="text" id="user" value="Ssong" />
+>
+>    <script>
+>      const $input = document.getElementById('user');
+>
+>      //attribute 값 취득
+>      const inputValue = $input.getAttribute('value');
+>
+>      //attribute 값 변경
+>      $input.setAttribute('value', 'song');
+>    </script>
+>  </body>
+></html>
+>```
+> - `hasAttribute` : 어트리뷰트 값 존재 확인
+> - `removeAttribute` : 어트리뷰트 삭제
+>```html
+>  <body>
+>    <input type="text" id="user" value="Ssong" />
+>
+>    <script>
+>      const $input = document.getElementById('user');
+>
+>      //attribute 값 취득
+>      if($input.hasAttribute('value')) {
+>        //attribute 값 삭제
+>        $input.removeAttribute('value');
+>      }
+>    </script>
+>  </body>
+></html>
+>```
+
+### 🎀 HTML attribute vs DOM 프로퍼티
+> - `<input id="user" type="text" value="Ssong">` 가 파싱되어 생성된 요소 노드 객체에는 id, type, value 프로퍼티가 존재하며, 이 DOM 프로퍼티들은 HTML 어트리뷰트 값을 초기값으로 가지고 있다.
+> - DOM 프로퍼티는 참조와 변경이 가능하다.
+>```html
+>  <body>
+>    <input type="text" id="user" value="Ssong" />
+>
+>    <script>
+>      const $input = document.getElementById('user');
+>
+>      //요소 노드의 value 프로퍼티 값을 참조 후 변경.
+>      $input.value = 'song';
+>
+>    </script>
+>  </body>
+></html>
+>```
+> - 요소 노드의 **초기 상태**는 어트리뷰트 노드가 관리하고, 사용자 입력에 의한 상태 변화와 관계있는(input, checkbox 같은)  **최신 상태**는 DOM 프로퍼티가 관리한다.
+> - `setAttribute` 는 요소 노드의 초기 상태를 변경한다.
+> - 위의 예시에서 `$input.value`로 값을 변경하여도 초기 상태는 변경되지 않는다.
+
+> ✅ `getAttribute`로 취득한 어트리뷰트 값은 언제나 문자열이다. 하지만 DOM 프로퍼티로 취득한 최신 상태 값은 **문자열이 아닐 수도 있다.** 예를 들어, checkbox 요소의 checked 어트리뷰트 값은 문자열이지만 checked 프로퍼티 값은 boolean 타입이다.
+
+### 🎀 `data` 어트리뷰트와 `dataset` 프로퍼티
+> - `data` 어트리뷰트는 data-user-id, data-user-name 같이 data뒤에 이름을 붙인다.
+> ```js
+> <ul id="users">
+>   <li id="1" data-user-id="1234" data-user-name="song">song</li>
+>   <li id="2" data-user-id="2345" data-user-name="jin">jin</li>
+> <ul>
+>```
+> - `data` 어트리뷰트는 `dataset` 프로퍼티로 취득하고 변경할 수 있다. `data`뒤에 붙인 이름을 **camelCase**로 변환한 프로퍼티 값을 가지고 있다.
+> ```js
+> <ul id="users">
+>   <li id="1" data-user-id="1234" data-user-name="song">Jinyoung</li>
+>   <li id="2" data-user-id="2345" data-user-name="parker">peter</li>
+> <ul>
+>const users = [...document.getElementById('users').children];
+>
+>const song = users.find(user => user.dataset.userId === '1234');
+>
+>console.log(song.dataset.userName) //Jinyoung
+>
+>// 없는 프로퍼티에 값을 할당하면 새로 추가된다.
+>song.dataset.role = 'admin'
+>```
