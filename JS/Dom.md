@@ -123,7 +123,7 @@
 >    </script>
 >  </body>
 ></html>
----------------------------------------
+>
 ><body>
 >    <ul id="fruits">
 >        <li>Apple</li>
@@ -247,6 +247,7 @@
     </script>
 ```
 >위와 같은 경우에, `apple`의 색이 변화한 후 `$elem`에서 실시간으로 제거되면, 1번째 요소는 Banana가 아닌 Peach가 된다. 따라서 Banana의 색은 변하지 않는다.
+
 >![](https://images.velog.io/images/songjy377/post/c362fe57-5b21-469f-8c8d-7957064c572e/image.png)
 
 ### 🌿 `NodeList`
@@ -284,8 +285,7 @@
 >`lastChild` | **텍스트 노드이거나 요소 노드**인 마지막 자식 노드를 반환한다.
 >`firstElementChild` |첫 번째 자식 **요소 노드**를 반환한다.
 >`lastElementChild` | 마지막 자식 **요소 노드**를 반환한다.
->`hasChild` | 자식 노드의 존재 여부를 boolean 값으로 반환한다. **텍스트 노드를 포함하여 자식 노드를 확인한다.**<br> ➡ 텍스트 노드가 아닌 요소 노드가 존재하는지 확인하려면
->`children.length` 나 `childElementCount` 를 사용하다.
+>`hasChild` | 자식 노드의 존재 여부를 boolean 값으로 반환한다. **텍스트 노드를 포함하여 자식 노드를 확인한다.**<br> ➡ 텍스트 노드가 아닌 요소 노드가 존재하는지 확인하려면 `children.length` 나 `childElementCount` 를 사용하라.
 >
 >```js
 ><html>
@@ -386,25 +386,182 @@
 >```
 
 ## 🌳 요소 노드의 텍스트 조작
-### 🌿 nodeValue
+### 🌿 `textContent`
 > - `setter`, `getter` 모두 존재하는 접근자 프로퍼티다. 참조와 할당 모두 가능하다.
+> - HTML 마크업을 무시하고 요소 노드의 **childNodes 프로퍼티가 반환한 모든 노드**들의 텍스트 노드를 반환한다.
+>```html
+>  <body>
+>    <div id="foo">Hello <span>world</span></div>
+>  </body>
+>  <script>
+>    // html 마크업은 무시하고 #foo 요소 노드의 텍스트를 모두 취득한다.
+>    console.log(document.getElementById('foo').textContent); // Hello World!
+>    // #foo의 요소 노드의 모든 자식 노드가 제거되고 할당한 문자열이 텍스트로 추가된다.
+>    document.getElementById('foo').textContent = '<div id="foo">Hello <span>test</span></div>';
+>    //<div id="foo">Hello <span>test</span></div> -> html이 파싱되지 않는다.
+>  </script>
+>```
 
-노드 조작
-다음과 같은 DOM API를 이용해 새로운 노드를 생성해 DOM에 추가하거나 기존 노드를 삭제 또는 교체할 수 있다.
+## 🌳 DOM 조작
+### 🌿 `innerHTML`
+> - 요소 노드의 HTML 마크업을 문자열로 취득하거나 변경한다.
+>```js
+><body>
+>  <ul class="fruits">
+>    <li class="apple">Apple</li>
+>  </ul>
+></body>
+><script>
+>  const $fruits = document.querySelector('.fruits');
+>  $fruits.innerHTML += '<li class ="peach">Peach</li>';
+>  // html을 가져와서 추가해주는 것이므로 아래와 같이 변경된다.
+>  //  <li class="apple">Apple</li>
+>  //  <li class="peach">Peach</li>
+>  $fruits.innerHTML = '<li class ="peach">Peach</li>';
+>  //위 코드는 값을 재할당하므로 html요소를 변경한다.
+></script>
+>```
 
-노드 생성
-Document.createElement, Document.createTextNode, Document.createDocumentFragment
+### 🌿 `insertAjacentHTML`
+> - 기존 요소를 제거하지 않으면서 위치를 지정해 새로운 요소를 삽입한다.
+> - `beforebegin, afterbegin, beforeend, afterend` 를 첫번째 인수로 전달한다.
+>```js
+><span id="test">how</span>
+>
+>var test = document.getElementById('test'); 
+>
+>test.insertAdjacentHTML('beforebegin', 'Hi-'); // 타켓 요소 전(형제레벨)에 생성- >시작 태그의 앞(형제 레벨로) 
+>test.insertAdjacentHTML('afterbegin', 'Ssong-'); // 타켓 요소 다음(자식요소)에 >생성 - 시작 태그의 뒤(자식 요소로) 
+>test.insertAdjacentHTML('beforeend','-are'); // 타켓 요소 끝나는 태그 바로 직전>(자식요소로)에 요소를 생성 - 종료 태그 앞(자식 요소로) 
+>test.insertAdjacentHTML('afterend','-you?'); // 타켓 요소의 끝나는 태그 바로 다음>(형제레벨)에 요소를 생성 - 종료 태그 뒤(형제 레벨로) 
+>
+>console.log(document.body.innerHTML); 
+>// 다음과 같이 기록된다. /* Hi-Ssong-how-are-you? */
+>```
 
-노드 삽입
-Node.appendChild, Node.insertBefore
+## 🌳 노드 생성
+### 🌿 `createElement`
+> - html 마크업 문자열을 파싱하여 노드를 생성하고 DOM에 반영한다.
+>```js
+><body>
+>  <ul class="fruits">
+>    <li>Apple</li>
+>  </ul>
+></body>
+><script>
+>  const $fruits = document.querySelector('.fruits');
+>  const $li = document.createElement('li'); //li 요소 노드 생성
+>
+>  $li.className = 'peach' // class 지정 가능
+>
+>  const textNode = document.createTextNode('Peach'); //텍스트 노드 생성
+>
+>  $li.appendChild(textNode); // 텍스트 노드를 li 요소 노드의 자식 노드로 추가
+>  
+>  $fruits.appendChild($li); // li 요소 노드를 ul 요소 노드의 마지막 자식 노드로 추가.
+>  // <ul class="fruits">
+>  //   <li>Apple</li>
+>  //   <li>Peach</li>
+>  // </ul>
+></script>
+>
+>const $input = document.createElement('input'); // input
+>$input.type = 'checkbox'; //input type 설정 가능
+>```
 
-노드 복사
-Node.cloneNode
+### 🌿 `createDocumentFragment`
+> - 새로 추가할 노드들의 가상의 부모 노드로서, DocumentFragment 노드를 DOM에 추가하면 자신은 제거되고 자신의 자식 노드만 DOM에 추가된다.
+>```js
+>var $list = document.querySelector('#list');
+>var fruits = ['Apple', 'Orange', 'Banana', 'Melon']
+>
+>var $fragment = new DocumentFragment();
+>
+>fruits.forEach(function (fruit) {
+>  var $li = document.createElement('li');
+>  const textNode = document.createTextNode(fruit);
+>  $li.appendChild(textNode);
+>  fragment.appendChild($li);
+>});
+>
+>$list.appendChild($fragment)
+>```
 
-노드 교체
-Node.replaceChild
+## 🌳 노드 삽입
+### 🌿 `appendChild`
+> - `Node.prototype.appendChild`는 언제나 자신을 호출한 노드의 마지막 자식 요소로 추가한다. 
 
-노드 삭제
-Node.removeChild
+### 🌿 `insertBefore`
+> - `Node.prototype.insertBefore`는 첫 번째 인수로 전달받은 노드를 두 번째 인수로 전달받은 노드 앞에 삽입한다.
+>```js
+>$fruits.insertBefore($li, $fruits.lastElementChild);
+>```
 
-DOM 조작을 통해 DOM에 새로운 노드가 추가되거나 삭제되면 리플로우와 리페인트가 발생하기 때문에, 복잡한 콘텐츠를 다루는 DOM 조작은 성능 최적화를 위해 주의해서 다루어야 한다.
+## 🌳 노드 복사
+### 🌿 `cloneNode`
+> - `Node.prototype.cloneNode([deep: ture | false])` 메서드는 노드의 사본을 생성하여 반환한다. 
+> - 매개변수 deep에 true를 인수로 전달하면 노드를 깊은 복사하여 모든 자손 노드가 포함된 사본을 생성하고, false를 인수로 전달하거나 생략하면 노드를 얕은 복사하여 노드 자신만의 사본을 생성한다. (얕은 복사를 하면 자손 노드가 없으므로 텍스트 노드가 없다.)
+```js
+const $shallowClone = $apple.cloneNode(); //얕은 복사
+const $shallowClone = $apple.cloneNode(true); //깊은복사
+```
+
+## 🌳 노드 교체
+### 🌿 `replaceChild`
+> - `Node.prototype.replaceChild(newChild, oldChild)` 메서드는 자신을 호출한 노드의 oldChild 노드를 newChild로 교체한다.
+>```js
+>// <div>
+>//  <span id="childSpan">foo bar</span>
+>// </div>
+>
+>//span 요소 생성
+>var newSp = document.createElement("span");
+>
+>// id 지정.
+>newSp.id = "newSpan";
+>
+>// span content 생성
+>var newSp_content = document.createTextNode("new replacement span element.");
+>
+>// newSp 마지막 자식으로 추가
+>newSp.appendChild(newSp_content);
+>
+>// 교체할 노드
+>var oldSp = document.getElementById("childSpan");
+>var parentDiv = oldSp.parentNode;
+>
+>// oldSp 노드를 newSp으로 교체합니다.
+>parentDiv.replaceChild(newSp, oldSp);
+>
+>// 결과:
+>// <div>
+>//   <span id="newSpan">new replacement span element.</span>
+>// </div>
+>```
+
+## 🌳 노드 삭제
+### 🌿 `remove`
+> - `Element.remove` 메서드는 호출한 요소 노드 자체를 삭제한다.
+>```js
+><div id="div-01">Here is div-01</div>
+><div id="div-02">Here is div-02</div>
+><div id="div-03">Here is div-03</div>
+>
+>var el = document.getElementById('div-02');
+>el.remove(); // div-02 id를 가진 div 요소를 삭제한다.
+>```
+
+### 🌿 `removeChild`
+> - `Node.prototype.removeChild(child)` 메서드는 호출한 요소의 child 매개변수 노드를 DOM에서 삭제한다. 삭제한 노드를 반환한다.
+>```js
+><div id="wrapper">
+>  <div id="nested"></div>
+></div>
+>
+>let d = document.getElementById("wrapper");
+>let d_nested = document.getElementById("nested");
+>let throwawayNode = d.removeChild(d_nested); //nested id를 가진 div 요소를 삭제하고, 반환한다.
+>```
+
+## 🎁 `Attribute`
+### 🎀 attribute와 attribute 프로퍼티
