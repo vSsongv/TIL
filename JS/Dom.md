@@ -10,8 +10,6 @@
 > - HTML요소는 중첩 관계를 갖는다. 즉 HTML 요소의 콘텐츠 영역에는 텍스트뿐만 아니라 다른 HTML요소도 포함할 수 있다.
 > - **노드 객체들로 구성된 트리 자료구조를 DOM이라 한다.**
 >```html
-><!DOCTYPE html>
->
 ><head>
 >    <meta charset="UTF-8">
 ></head>
@@ -75,7 +73,7 @@
 > - 인수로 전달한 id 값을 갖는 하나의 요소 노드를 탐색해 반환한다. 
 > - 만약 중복된 id 값을 갖는 요소가 여러 개가 있다면 첫 번째 요소 노드만 반환한다. 또한 해당되는 노드가 없다면 null을 반환한다.
 >
->```js
+>```html
 ><html>
 >  <body>
 >    <ul>
@@ -107,7 +105,7 @@
 
 ### 🌿  `Document.getElementsByTagName()`
 > - 인수로 전달한 태그 이름을 갖는 모든 요소 노드들을 탐색하여 반환한다. **HTMLCollection(live) 객체** 를 반환한다.
->```js
+>```html
 ><html>
 >  <body>
 >    <ul>
@@ -187,7 +185,7 @@
 >```
 
 ### 🌿 `querySelector()`
-> - 인수로 전달한 CSS 선택자를 만족시키는 하나의 요소 노드를 탐색하여 반환한다.
+> - 인수로 전달한 선택자를 만족시키는 하나의 요소 노드를 탐색하여 반환한다.
 >```html
 >    <ul>
 >        <li class="apple">Apple</li>
@@ -195,15 +193,18 @@
 >        <li class="peach">Peach</li>
 >    </ul>
 >    <script>
->        //DOM 전체에서 class 어트리뷰트 값이 'peach'인 첫 번째 요소 노드를 탐색하여 반환한다.
->        const $elems = document.querySelector('.peach');
->        console.log($elems);
+>      //DOM 전체에서 class 어트리뷰트 값이 'peach'인 첫 번째 요소 노드를 탐색하여 반환한다.
+>      const $elems = document.querySelector('.peach');
+>      console.log($elems); // <li class="peach">::marker:"Peach"</li>
+>
+>      //만약 li 태그로 요소 노드를 찾을 시 제일 첫번째 노드를 반환한다.
+>      console.log(document.querySelector('li').textContent); //apple
 >    </script>
 >```
 
 ### 🌿 `querySelectorAll()`
 > - 인수로 전달한 CSS 선택자를 만족시키는 모든 요소 노드를 탐색하여 반환한다. **NodeList(non-live) 객체**를 반환한다.
->```
+>```js
 >    <script>
 >        //ul 요소의 자식 요소인 li 요소를 모두 탐색하여 반환한다.
 >        const $elems = document.querySelectorAll('ul > li');
@@ -235,18 +236,18 @@
 
 ### 🌿 `HTMLCollection`
 > `getElementsByClassName`, `getElementsByTagName` 메서드가 반환하는 노드 객체의 상태 변화를 실시간으로 반영하는 살아 있는 DOM 컬렉션 객체이다. 
-```html
-    <ul id="fruits">
-        <li class="apple">Apple</li>
-        <li class="banana">Banana</li>
-        <li class="peach">Peach</li>
-    </ul>
-    <script>
-        for (let i = $elems.length - 1; i >= 0; i++) {
-            $elem[i].className = 'blue';
-        }
-    </script>
-```
+>```html
+>    <ul id="fruits">
+>        <li class="apple">Apple</li>
+>        <li class="banana">Banana</li>
+>        <li class="peach">Peach</li>
+>    </ul>
+>    <script>
+>        for (let i = $elems.length - 1; i >= 0; i++) {
+>            $elem[i].className = 'blue';
+>        }
+>    </script>
+>```
 >위와 같은 경우에, `apple`의 색이 변화한 후 `$elem`에서 실시간으로 제거되면, 1번째 요소는 Banana가 아닌 Peach가 된다. 따라서 Banana의 색은 변하지 않는다.
 
 >![](https://images.velog.io/images/songjy377/post/c362fe57-5b21-469f-8c8d-7957064c572e/image.png)
@@ -288,7 +289,7 @@
 >`lastElementChild` | 마지막 자식 **요소 노드**를 반환한다.
 >`hasChild` | 자식 노드의 존재 여부를 boolean 값으로 반환한다. **텍스트 노드를 포함하여 자식 노드를 확인한다.**<br> ➡ 텍스트 노드가 아닌 요소 노드가 존재하는지 확인하려면 `children.length` 나 `childElementCount` 를 사용하라.
 >
->```js
+>```html
 ><html>
 >
 ><body>
@@ -368,7 +369,7 @@
 >|--|--|
 >`nodeType` |노드 객체의 종류, 즉 노드 타입을 나타내는 상수를 반환한다. <br> `Node.ELEMENT_NODE` : 요소 노드 타입을 나타내는 상수 1을 반환 <br> `Node.TEXT_NODE` : 텍스트 노드 타입을 나타내는 상수 3을 반환 <br> `Node.DOCUMENT_NODE` : 문서 노드 타입을 나타내는 상수 9를 반환
 >`nodeName` |노드의 이름을 문자열로 반환한다. <br> ** 요소 노드** :  대문자 문자열로 태그 이름("UL", "LI")등을 반환 <br> **텍스트 노드** : "#text"를 반환 <br> **문서 노드** : 문자열 #document"를 반환
->```js
+>```html
 ><body>
 >    <div id="foo">Hello</div>
 ></body>
@@ -406,7 +407,7 @@
 ## 🌳 DOM 조작
 ### 🌿 `innerHTML`
 > - 요소 노드의 HTML 마크업을 문자열로 취득하거나 변경한다.
->```js
+>```html
 ><body>
 >  <ul class="fruits">
 >    <li class="apple">Apple</li>
@@ -543,7 +544,7 @@ const $shallowClone = $apple.cloneNode(true); //깊은복사
 ## 🌳 노드 삭제
 ### 🌿 `remove`
 > - `Element.remove` 메서드는 호출한 요소 노드 자체를 삭제한다.
->```js
+>```html
 ><div id="div-01">Here is div-01</div>
 ><div id="div-02">Here is div-02</div>
 ><div id="div-03">Here is div-03</div>
@@ -554,7 +555,7 @@ const $shallowClone = $apple.cloneNode(true); //깊은복사
 
 ### 🌿 `removeChild`
 > - `Node.prototype.removeChild(child)` 메서드는 호출한 요소의 child 매개변수 노드를 DOM에서 삭제한다. 삭제한 노드를 반환한다.
->```js
+>```html
 ><div id="wrapper">
 >  <div id="nested"></div>
 ></div>
@@ -637,24 +638,70 @@ const $shallowClone = $apple.cloneNode(true); //깊은복사
 
 ### 🎀 `data` 어트리뷰트와 `dataset` 프로퍼티
 > - `data` 어트리뷰트는 data-user-id, data-user-name 같이 data뒤에 이름을 붙인다.
-> ```js
+> ```html
 > <ul id="users">
 >   <li id="1" data-user-id="1234" data-user-name="song">song</li>
 >   <li id="2" data-user-id="2345" data-user-name="jin">jin</li>
 > <ul>
 >```
 > - `data` 어트리뷰트는 `dataset` 프로퍼티로 취득하고 변경할 수 있다. `data`뒤에 붙인 이름을 **camelCase**로 변환한 프로퍼티 값을 가지고 있다.
-> ```js
+> ```html
 > <ul id="users">
 >   <li id="1" data-user-id="1234" data-user-name="song">Jinyoung</li>
 >   <li id="2" data-user-id="2345" data-user-name="parker">peter</li>
 > <ul>
->const users = [...document.getElementById('users').children];
+> <script>
+>   const users = [...document.getElementById('users').children];
 >
->const song = users.find(user => user.dataset.userId === '1234');
+>   const song = users.find(user => user.dataset.userId === '1234');
 >
->console.log(song.dataset.userName) //Jinyoung
+>   console.log(song.dataset.userName) //Jinyoung
 >
->// 없는 프로퍼티에 값을 할당하면 새로 추가된다.
->song.dataset.role = 'admin'
+>   // 없는 프로퍼티에 값을 할당하면 새로 추가된다.
+>   song.dataset.role = 'admin'
+> </script>
 >```
+
+## 🎁 Style
+### 🎀 inline style 조작
+> - `.style` 프로퍼티는 접근자 프로퍼티로서 인라인 스타일을 취득하거나 변경한다.
+>```html
+><body>
+>  <div style="color:red">Hello World</div>
+>  <script>
+>    const $div = document.querySelector('div');
+>
+>    console.log($div.style.color); //'red'
+>
+>    // inline style 변경 -> 반드시 문자열로 입력. 
+>    $div.style.color = 'blue'
+>    $div.style.width = '100px' //단위 체크 필수.
+>    $div.style.backgroundColor = 'yellow' // kebab-case인 css 프로퍼티는 camelCase로 사용한다.
+>  </script>
+></body>
+>```
+
+## 🎁 class 조작
+### 🎀 `classList`
+> - .classList 프로퍼티를 통해 요소 노드의 class 값을 참조/변경 가능하다. 
+>```html
+>  <head>
+>    <style>
+>      .box {
+>        width: 100px;
+>        height: 100px;
+>        background-color: aquamarine;
+>      }
+>    </style>
+>  </head>
+>  <body>
+>    <div class="box red">Hello World</div>
+>    <script>
+>      const $box = document.querySelector('.box');
+>
+>      console.log($box.classList); //DOMTokenList(2) [0: "box" 1: "blue" value: 'box red' length: 2]
+>
+>      $box.className.replace('red', 'blue');
+>    </script>
+>```
+> `DOMTokenList 객체는 class 어트리뷰트의 정보를 나타내는 컬렉션 객체로서, 유용한 메서드들을 가진다.`
