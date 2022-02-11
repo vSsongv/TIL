@@ -4,7 +4,7 @@
 ### 🔹Ordered List
 순서가 존재하는 List. ex)레시피 
 - **&lt;li>** 바깥을 **&lt;ol>**로 묶어준다.
-- &lt;ol _**type="지정값"**_> / &lt;li _**value="지정값"**_ > - 지정값에 맞추어 자동 numbering을 매겨준다. (A로 하면 A,B,C로) 지정하지 않으면 자동으로 숫자로 맞춘다.
+- &lt;ol _**type="지정값"**_> / &lt;li _**value="지정값"**_ > :0 지정값에 맞추어 자동 numbering을 매겨준다. (A로 하면 A,B,C로) 지정하지 않으면 자동으로 숫자로 맞춘다.
 - &lt;ol _**reversed**_>를 사용하면 numbering이 반대로 된다.
 ### 🔹UnOrdered List
 순서가 존재하지 않는 List. ex)우리나라 꽃의 종류
@@ -69,9 +69,9 @@
 | 미국 | 워싱턴 | 3억 |
 | 태국 | 방콕 | 6900만 |
 
-- **&lt;tr> ** : table의 제목으로 사용할 수 있다. 이때 반드시 table의 첫 번째 자식이어야 한다.
-- **&lt;tr> ** : "table row" 한 row을 나타낸다. 
-- **&lt;th> ** : "table head", table의 대표 col 부분을 나타낸다.(나라이름, 수도, 인구 부분) 한국, 미국, 태국 부분을 th로 바꿀 수도 있다. 이때 이들은 열을 대표하는 내용을 이룬다.
+- **&lt;tr>** : table의 제목으로 사용할 수 있다. 이때 반드시 table의 첫 번째 자식이어야 한다.
+- **&lt;tr>** : "table row" 한 row을 나타낸다. 
+- **&lt;th>** : "table head", table의 대표 col 부분을 나타낸다.(나라이름, 수도, 인구 부분) 한국, 미국, 태국 부분을 th로 바꿀 수도 있다. 이때 이들은 열을 대표하는 내용을 이룬다.
      - &lt;th **scope="col/row"** > : 해당 head가 col을 대표하는지, row를 대표하는지 나타내는 것이 좋다.
 - **&lt;td>** : table의 data들을 이룬다. 
      - &lt;td **colspan="숫자"** > : 숫자 개수만큼의 col를 차지하게 된다.
