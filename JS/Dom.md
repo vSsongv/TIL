@@ -684,6 +684,7 @@ const $shallowClone = $apple.cloneNode(true); //깊은복사
 ## 🎁 class 조작
 ### 🎀 `classList`
 > - .classList 프로퍼티를 통해 요소 노드의 class 값을 참조/변경 가능하다. 
+> - DOMTokenList 객체를 반환한다.
 >```html
 >  <head>
 >    <style>
@@ -704,4 +705,14 @@ const $shallowClone = $apple.cloneNode(true); //깊은복사
 >      $box.className.replace('red', 'blue');
 >    </script>
 >```
-> `DOMTokenList 객체는 class 어트리뷰트의 정보를 나타내는 컬렉션 객체로서, 유용한 메서드들을 가진다.`
+
+✅ DOMTokenList 객체는 class 어트리뷰트의 정보를 나타내는 컬렉션 객체로서, 유용한 메서드들을 가진다.
+- **add**
+
+    - 인수로 전달한 1개 이상의  문자열을 class 어트리뷰트 값으로 추가한다.
+    - `$box.classList.add('blue')`
+- **remove**
+- **item**
+- **contains**
+- **replace**
+- **toggle**
