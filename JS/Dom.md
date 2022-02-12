@@ -706,13 +706,59 @@ const $shallowClone = $apple.cloneNode(true); //깊은복사
 >    </script>
 >```
 
-✅ DOMTokenList 객체는 class 어트리뷰트의 정보를 나타내는 컬렉션 객체로서, 유용한 메서드들을 가진다.
+✅ **DOMTokenList 객체는 class 어트리뷰트의 정보를 나타내는 컬렉션 객체로서, 유용한 메서드들을 가진다.**
 - **add**
-
-    - 인수로 전달한 1개 이상의  문자열을 class 어트리뷰트 값으로 추가한다.
+    - 인수로 전달한 1개 이상의 문자열을 class 어트리뷰트 값으로 추가한다.
     - `$box.classList.add('blue')`
 - **remove**
+    - 인수로 전달한 1개 이상의 문자열과 일치하는 클래스를 class 어트리뷰트 내에서 삭제한다.
+    - `$box.classList.remove('blue')`
 - **item**
+    - 인수로 전달한 index에 해당하는 클래스를 class 어트리뷰트 내에서 반환한다.
+    - `$box.classList.item(0) // "box"`
 - **contains**
+    - 인수로 전달한 문자열과 일치하는 클래스가 class 어트리뷰트에 포함되어 있는지를 확인한다.
+    - `$box.classList.contains('blue') // true`
 - **replace**
+    - 첫 번째 인수로 전달한 문자열을 두 번째 인수로 전달한 문자열로 변경한다.
+    - `$box.classList.replace('blue', 'red')`
 - **toggle**
+    - 인수로 전달한 문자열과 일치하는 클래스가 존재하면 제거하고, 존재하지 않으면 추가한다.
+    - `$box.classList.toggle('blue')`
+    - 두 번째 인수로 boolean 조건식을 전달할 수 있다. 이때 평가 결과가 true이면 강제로 인수로 전달받은 문자열을 class로 추가하고, false이면 제거한다.
+    - `$box.classList.toggle('blue', true)`
+- **forEach**, **entries**, **keys**, **values**, **supports** 메서드 또한 제공한다.
+
+## 🎁 `getComputedStyle`
+>- style 프로퍼티는 인라인 스타일만 반환한다. HTML 요소에 적용되어 있는 모든 CSS 스타일을 참조하기 위해서는 `getComputedStyle`을 사용해야 한다.
+>- `:before, :after`같은 의사 요소를 지정하는 문자열을 전달할 수 있다.
+>```html
+>  <head>
+>    <style>
+>      .box::before {
+>        content: 'I am';
+>      }
+>      .box {
+>        width: 100px;
+>        height: 100px;
+>        background-color: aquamarine;
+>      }
+>    </style>
+>  </head>
+>  <body>
+>    <div class="box">Box</div>
+>    <script>
+>      const $box = document.querySelector('.box');
+>
+>      const boxStyle = window.getComputedStyle($box);
+>
+>      console.log(boxStyle.width); //100px
+>      console.log(boxStyle.height); //100px
+>      console.log(boxStyle.backgroundColor); //rgb(127, 255, 212)
+>
+>      const boxBeforeStyle = window.getComputedStyle($box, '::before');
+>      console.log(boxBeforeStyle.content); //"I am"
+>    </script>
+>  </body>
+></html>
+>```
