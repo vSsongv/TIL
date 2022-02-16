@@ -222,11 +222,9 @@ xhr.send();
 
 ### 💠 `open`
 - 서버에 전송할 HTTP 요청을 초기화한다.
-- 
 ```js
 xhr.open(method, url[, async])
 ```
-- `xhr.open(method, url[, async])`
 
 |매개변수|설명|
 |:---:|:---:|
