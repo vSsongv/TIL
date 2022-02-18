@@ -29,7 +29,7 @@
 
 >- vi 파일명 : 파일을 읽기 모드로 open한다.
 
->-- h j k l - left, down, up, right
+>- h j k l - left, down, up, right
 
 >- i - insert mode
 
