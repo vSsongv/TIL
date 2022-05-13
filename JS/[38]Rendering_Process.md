@@ -97,7 +97,6 @@
 
 - CSS 파싱 과정과 마찬가지로 렌더링 엔진은 HTML을 파싱해 DOM을 생성해 나가다가, JS 파일을 로드하거나 JS 콘텐츠를 담은 script 태그를 만나면 DOM 생성을 일시 중단한다.
 - 자바스크립트 파싱과 실행은 브라우저 렌더링 엔진이 아닌 자바스크립트 엔진이 처리한다. 
-## 사진 넣기
 ![](https://images.velog.io/images/songjy377/post/f16aa826-534a-4b57-b3d5-408a51c6b674/image.png)
 
 <span style="color:#9A30AE">**토크나이징**</span>

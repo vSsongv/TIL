@@ -1,4 +1,3 @@
 # ✨TIL✨
 ✏ Note Today I Learned!
-
-About ❤HTML, 💙CSS, 💛JS, 💜GIT
+❤HTML, 💚CSS, 💛JS, 💙TS 💜Git
