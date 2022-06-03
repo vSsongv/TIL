@@ -1,3 +1,5 @@
+// 프로퍼티를 정해서 객체를 표현하고자 할 때 interface를 사용한다.
+
 type Score = 'A' | 'B' | 'C' | 'D' | 'F';
 
 interface User {
