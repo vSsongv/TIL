@@ -51,3 +51,14 @@ function infLoop():never {
     }
 }
 ```
+
+// 타입 단언
+// <T>{obj}
+// {obj} as T
+
+```ts
+const countries = result.map((data: any) => {
+          const {region, subregion, name, population} = data;
+          return {region, subregion, name: name.common, population} as ICountry;
+        });
+```
