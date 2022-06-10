@@ -55,3 +55,41 @@
 | void delete(T entity) | 엔티티 삭제 |
 | count() | 엔티티 총 개수 반환 |
 | Iterable<T> findAll() | 모든 엔티티 조회 |
+
+### Query Method
+
+```sql
+find + (entity 이름) + By + 변수이름
+
+findByItemName
+
+OrderBy + 속성명 + Asc(오름차순) / Des(내림차순) 로 정렬 가능.
+```
+
+### @Query annotation
+
+- 쿼리 조건이 많아지면 메소드 이름이 굉장히 길어지기도 함. 이런 문제점에 대응하여 Qurey annotaion 이용!
+- JPQL이라는 객체지향 쿼리 언어 이용.
+
+### Querydsl
+
+- Query annotation도 컴파일 시점에는 에러를 발견할 수 없다는 단점이 있다.
+
+| 메소드 | 기능 |
+| --- | --- |
+|  List<T> fetch() | 조회 결과 리스트 반환 |
+| T fetchOne | 조회 대상이 1건인 경우 제네릭으로 지정한 타입 반환 |
+| T fetchFirst() | 조회 대상 중 1건만 반환 |
+| Long fetchCount() | 조회 대상 개수 반환 |
+| QueryResult<T> fetchResults() | 조회한 리스트와 전체 개수를 포함한 QueryResults 반환 |
+
+### QueryDslPredicateExcutor
+
+| 메소드 | 기능 |
+| --- | --- |
+| long count(Predicate) | 조건에 맞는 데이터의 총 개수 반환 |
+| boolean exist(Predicate) | 조건에 맞는 데이터 존재 여부 반환 |
+| Iterable findAll(Predicate) | 조건에 맞는 모든 데이터 반환 |
+| Page<T> findAll(Predicate, Pageble) | 조건에 맞는 정렬된 데이터 반환 |
+| Iterable findAll(Predicate, Sort) | 조건에 맞는 정렬된 데이터 반환 |
+| T findOne(Predicate) | 조건에 맞는 데이터 1개 반환 |
