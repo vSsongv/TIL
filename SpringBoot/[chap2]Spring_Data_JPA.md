@@ -37,8 +37,7 @@
     | @Id | 테이블의 기본키에 사용할 속성을 지정합니다. |
     | @GeneratedValue | 주키의 값을 위한 자동 생성 전략을 명시하는데 사용합니다. |
     | @Column | 필드와 컬럼을 매핑하는 데 사용합니다. 해당 어노테이션 속성을 사용하면 다양한 제약 조건 추가 가능(문자열 최대 저장 길이 등) |
-    | @Lob | BLOB (바이너리 데이터를 DB 외부에 저장하기 위한 타입(이미지, 사운드, 비디오 같은 멀티미디어 데이터를 다룰 때 사용할 수 있습니다)
-    CLOB (문자형 대용량 파일을 저장 하는데 사용하는 데이터 타입)
+    | @Lob | BLOB (바이너리 데이터를 DB 외부에 저장하기 위한 타입(이미지, 사운드, 비디오 같은 멀티미디어 데이터를 다룰 때 사용할 수 있습니다), CLOB (문자형 대용량 파일을 저장 하는데 사용하는 데이터 타입)
     을 타입매핑 합니다. |
     | @CreationTimestamp | insert시 시간 자동 저장합니다. |
     | @Enumerated | enum 타입을 매핑합니다. |
@@ -51,10 +50,10 @@
 
 | 메소드 | 기능 |
 | --- | --- |
-|  <S extends T> save(S entity) | 엔티티 저장 및 수정 |
+|  \<S extends T> save(S entity) | 엔티티 저장 및 수정 |
 | void delete(T entity) | 엔티티 삭제 |
 | count() | 엔티티 총 개수 반환 |
-| Iterable<T> findAll() | 모든 엔티티 조회 |
+| Iterable\<T> findAll() | 모든 엔티티 조회 |
 
 ### Query Method
 
@@ -77,11 +76,11 @@ OrderBy + 속성명 + Asc(오름차순) / Des(내림차순) 로 정렬 가능.
 
 | 메소드 | 기능 |
 | --- | --- |
-|  List<T> fetch() | 조회 결과 리스트 반환 |
+|  List\<T> fetch() | 조회 결과 리스트 반환 |
 | T fetchOne | 조회 대상이 1건인 경우 제네릭으로 지정한 타입 반환 |
 | T fetchFirst() | 조회 대상 중 1건만 반환 |
 | Long fetchCount() | 조회 대상 개수 반환 |
-| QueryResult<T> fetchResults() | 조회한 리스트와 전체 개수를 포함한 QueryResults 반환 |
+| QueryResult\<T> fetchResults() | 조회한 리스트와 전체 개수를 포함한 QueryResults 반환 |
 
 ### QueryDslPredicateExcutor
 
@@ -90,6 +89,6 @@ OrderBy + 속성명 + Asc(오름차순) / Des(내림차순) 로 정렬 가능.
 | long count(Predicate) | 조건에 맞는 데이터의 총 개수 반환 |
 | boolean exist(Predicate) | 조건에 맞는 데이터 존재 여부 반환 |
 | Iterable findAll(Predicate) | 조건에 맞는 모든 데이터 반환 |
-| Page<T> findAll(Predicate, Pageble) | 조건에 맞는 정렬된 데이터 반환 |
+| Page\<T> findAll(Predicate, Pageble) | 조건에 맞는 정렬된 데이터 반환 |
 | Iterable findAll(Predicate, Sort) | 조건에 맞는 정렬된 데이터 반환 |
 | T findOne(Predicate) | 조건에 맞는 데이터 1개 반환 |
