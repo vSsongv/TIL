@@ -133,7 +133,7 @@ class ItemRepositoryTest {
                 .where(qItem.itemDetail.like("%" + "테스트 상품 상세 설명" + "%"))
                 .orderBy(qItem.price.desc());
 
-            List<Item> itemList = query.fetch();
+        List<Item> itemList = query.fetch();
 
         for (Item item : itemList) {
             System.out.println(item.toString());
