@@ -12,9 +12,4 @@ public class Cluv2ShopApplication {
 		SpringApplication.run(Cluv2ShopApplication.class, args);
 	}
 
-	@GetMapping(value = "/")
-	public String HellowWorld() {
-		return "Hello World!";
-	}
-
 }
