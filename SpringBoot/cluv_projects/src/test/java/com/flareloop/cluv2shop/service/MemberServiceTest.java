@@ -11,8 +11,8 @@ import org.springframework.test.context.TestPropertySource;
 
 import javax.transaction.Transactional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
+
 @SpringBootTest
 @Transactional
 @TestPropertySource(locations="classpath:application-test.properties")
@@ -38,11 +38,11 @@ public class MemberServiceTest {
         Member member = createMember();
         Member savedMember = memberService.saveMember(member);
 
-        assertEquals(member.getEmail(), savedMember.getEmail());
-        assertEquals(member.getName(), savedMember.getName());
-        assertEquals(member.getAddress(), savedMember.getAddress());
-        assertEquals(member.getPassword(), savedMember.getPassword());
-        assertEquals(member.getRole(), savedMember.getRole());
+        assertSame(member.getEmail(), savedMember.getEmail());
+        assertSame(member.getName(), savedMember.getName());
+        assertSame(member.getAddress(), savedMember.getAddress());
+        assertSame(member.getPassword(), savedMember.getPassword());
+        assertSame(member.getRole(), savedMember.getRole());
 
     }
 
@@ -58,6 +58,14 @@ public class MemberServiceTest {
         });
 
         assertEquals("이미 가입된 회원입니다.", e.getMessage());
+    }
+
+    @Test
+    @DisplayName("assertNotNull 테스트")
+    public void asssertNotNullTest() {
+        Member member = createMember();
+
+        assertNotNull(member);
     }
 
 }
