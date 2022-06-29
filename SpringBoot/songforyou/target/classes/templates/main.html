@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout1}">
+
+<th:block layout:fragment="script">
+
+    <script th:inline="javascript">
+
+    </script>
+
+</th:block>
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+    <style>
+        .carousel-inner > .item {
+            height: 350px;
+        }
+        .margin{
+            margin-bottom:30px;
+        }
+        .banner{
+            height: 300px;
+            position: absolute; top:0; left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .card-text{
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        a:hover{
+            text-decoration:none;
+        }
+        .center{
+            text-align:center;
+        }
+        .selectArea {
+            display: flex;
+            flex-direction: row;
+        }
+        .recommend-btn {
+        width: 150px;
+        border-radius: 5px;
+        height: 50px;
+        background-color: orange;
+        }
+        a { text-decoration:none !important }
+        a:hover { text-decoration:none !important }
+    </style>
+</th:block>
+
+<div layout:fragment="content">
+    <div class="selectArea">
+        <h3>오늘 듣고 싶은 노래는?</h3>
+        <select name="genre">
+            <option value="">장르 선택</option>
+            <option value="불러와">{}</option>
+            <option value="불러와">{}</option>
+            <option value="불러와">{}</option>
+        </select>
+        <button>선택완료</button>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <td>곡 제목</td>
+            <td>작성자</td>
+            <td>장르</td>
+            <td>날짜</td>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <button class="recommend-btn">
+        <a href="/write">나도 추천하기</a>
+    </button>
+</div>
