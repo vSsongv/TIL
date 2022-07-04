@@ -29,6 +29,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/members/logout"))
                 .logoutSuccessUrl("/");
+        http.authorizeRequests()
+                .mvcMatchers("/", "*/*", "*")
+                .permitAll();
     }
     @Bean
     public PasswordEncoder passwordEncoder(){
@@ -40,8 +43,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(memberService).passwordEncoder(passwordEncoder());
     }
 
-//    @Override
-//    public void configure(WebSecurity web) throws Exception{
-//        web.ignoring().antMatchers("/css/**","/js/**","/img/**");
-//    }
+    @Override
+    public void configure(WebSecurity web) throws Exception{
+        web.ignoring().antMatchers("/css/**","/js/**","/img/**");
+    }
 }
