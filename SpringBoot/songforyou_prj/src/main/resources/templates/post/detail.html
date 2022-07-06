@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<th:block layout:fragment="script">
+
+  <script th:inline="javascript">
+
+  </script>
+</th:block>
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+    <style>
+        .postWrapper {
+            border: 1px solid black;
+            margin: auto;
+        }
+    </style>
+</th:block>
+<head>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="postWrapper">
+        <span class="post-title" th:text="${postReadDto.title}"></span>
+        <span th:if="${postReadDto.genreId}==1" th:text="팝"></span>
+        <span th:if="${postReadDto.genreId}==2" th:text="케이팝"></span>
+        <span th:if="${postReadDto.genreId}==3" th:text="댄스"></span>
+        <span th:if="${postReadDto.genreId}==4" th:text="재즈"></span>
+        <span th:if="${postReadDto.genreId}==5" th:text="발라드"></span>
+        <span th:if="${postReadDto.genreId}==6" th:text="클래식"></span>
+        <span th:if="${postReadDto.genreId}==7" th:text="기타"></span>
+        <span class="post-title" th:text="${postReadDto.writer}"></span>
+        <span th:text="${#temporals.format(postReadDto.createdTime, 'yyyy-MM-dd')}"></span>
+        <div>
+            <div class="post-title" th:text="${postReadDto.content}"></div>
+            <a class="post-title" th:text="${postReadDto.link}"></a>
+            <button sec:authorize="isAuthenticated()" >
+                <a th:href="'/post/'+${postReadDto.postId}+'/update'">수정</a>
+            </button>
+            <button sec:authorize="isAuthenticated()">
+                <a th:href="'/post/'+${postReadDto.postId}+'/delete'">삭제</a>
+            </button>
+        </div>
+    </div>
+</div>
+</body>
