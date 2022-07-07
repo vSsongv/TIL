@@ -58,17 +58,18 @@
     <span sec:authorize="isAnonymous()">로그인을 하시면 추천이 가능합니다.</span>
   <div class="selectArea">
     <h3>오늘 듣고 싶은 노래는?</h3>
-    <select name="genre">
+    <select th:onchange="if(this.value) location.href=(this.value);" name="genre">
       <option value="">장르 선택</option>
-      <option value="1">팝</option>
-      <option value="2">케이팝</option>
-      <option value="3">댄스</option>
-      <option value="4">재즈</option>
-      <option value="5">발라드</option>
-      <option value="6">클래식</option>
-      <option value="7">기타</option>
+      <option value="/">전체보기</option>
+      <option value="/post/genre/1">팝</option>
+      <option value="/post/genre/2">케이팝</option>
+      <option value="/post/genre/3">댄스</option>
+      <option value="/post/genre/4">재즈</option>
+      <option value="/post/genre/5">발라드</option>
+      <option value="/post/genre/6">클래식</option>
+      <option value="/post/genre/7">기타</option>
     </select>
-    <button>입니다.</button>
+    <span class="genreFilterBtn">입니다.</span>
   </div>
   <table class="table">
     <thead>

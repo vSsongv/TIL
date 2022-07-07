@@ -1,6 +1,7 @@
 package com.SongForYou.dto;
 
 import com.SongForYou.entity.Post;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,11 +21,10 @@ public class PostReadDto {
     private Long postId;
 
     public LocalDateTime createdTime;
-//    private Integer numOfComment;
-//    private List<CommentReadDto> commentReadDtoList;
+    private Integer numOfComment;
+    private List<CommentReadDto> commentReadDtoList;
 
-//    public PostReadDto(Post post,Integer numOfComment, List<CommentReadDto> commentReadDtoList){
-    public PostReadDto(Post post){
+    public PostReadDto(Post post, Integer numOfComment, List<CommentReadDto> commentReadDtoList){
         this.title = post.getTitle();
         this.content = post.getContent();
         this.link = post.getLink();
@@ -33,7 +33,7 @@ public class PostReadDto {
         this.writerId = post.getMember().getId();
         this.postId = post.getId();
         this.createdTime = post.getCreatedTime();
-//        this.numOfComment = numOfComment;
-//        this.commentReadDtoList = commentReadDtoList;
+        this.numOfComment = numOfComment;
+        this.commentReadDtoList = commentReadDtoList;
     }
 }

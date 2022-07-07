@@ -63,13 +63,17 @@ public class PostService {
     public PostReadDto readPost(Long id){
         Post post = findPost(id);
         Integer numOfComment = countedCommentByPostId(id);
-//        List<CommentReadDto> commentReadDtoList = commentService.readComment(post.getComments());
-//        PostReadDto readPost = new PostReadDto(post, numOfComment, commentReadDtoList);
-        PostReadDto readPost = new PostReadDto(post);
+        List<CommentReadDto> commentReadDtoList = commentService.readComment(post.getComments());
+        PostReadDto readPost = new PostReadDto(post, numOfComment, commentReadDtoList);
         return readPost;
     }
     public Integer countedCommentByPostId(Long postId){
-        Integer countedCommenet = commentRepository.countByPostId(postId);
-        return countedCommenet;
+        Integer countedComment = commentRepository.countByPostId(postId);
+        return countedComment;
+    }
+
+    public List<Post> getPostByGenreId(int genreId) {
+        List<Post> genrePost = postRepository.findAllByGenreId(genreId);
+        return genrePost;
     }
 }

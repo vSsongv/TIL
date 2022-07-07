@@ -18,16 +18,15 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MainController {
 
-    public final PostService postService;
+    private final PostService postService;
 
     @Autowired
     private final MemberRepository memberRepository;
     @GetMapping(value = "/")
     public String main(Model model, Principal principal) {
         if(principal != null){
-            String user = principal.getName();
             Member member = memberRepository.findByEmail(principal.getName());
-            model.addAttribute("member", member.getNickName());
+            model.addAttribute("member",member.getNickName());
         }
         List<Post> posts = postService.postList();
         model.addAttribute("posts", posts);

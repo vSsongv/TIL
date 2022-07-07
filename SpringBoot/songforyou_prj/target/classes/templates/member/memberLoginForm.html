@@ -9,23 +9,47 @@
         .error {
             color: #bd2130;
         }
+        .loginForm {
+          margin: auto;
+          width: 500px;
+          margin-top: 40px;
+          border : 1px solid black;
+          border-radius: 3px;
+          padding: 20px;
+          text-align: center;
+          }
+
+          .form-group {
+            display: flex;
+            flex-direction: row;
+          }
+
+          .form-group input {
+          width: 350px;
+          }
+
+          .loginBtn {
+            width: 300px;
+            background-color: #FFE279;
+            border: 0;
+            border-radius: 3px;
+          }
     </style>
 </th:block>
 
 <div layout:fragment="content">
 
-  <form role="form" method="post" action="/members/login">
+  <form class="loginForm" role="form" method="post" action="/members/login">
     <div class="form-group">
-      <label th:for="email">이메일주소</label>
+      <label th:for="email">ID</label>
       <input type="email" name="email" class="form-control" placeholder="이메일을 입력해주세요">
     </div>
     <div class="form-group">
-      <label th:for="password">비밀번호</label>
-      <input type="password" name="password" id="password" class="form-control" placeholder="비밀번호 입력">
+      <label th:for="password">Password</label>
+      <input type="password" name="password" id="password" class="form-control" placeholder="비밀번호를 입력해주세요">
     </div>
     <p th:if="${loginErrorMsg}" class="error" th:text="${loginErrorMsg}"></p>
-    <button class="btn btn-primary">로그인</button>
-    <button type="button" class="btn btn-primary" onClick="location.href='/members/new'">회원가입</button>
+    <button class="loginBtn">로그인</button>
     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
   </form>
 

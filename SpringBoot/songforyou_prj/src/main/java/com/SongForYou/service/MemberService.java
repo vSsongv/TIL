@@ -24,8 +24,9 @@ public class MemberService implements UserDetailsService {
     }
 
     private void validateDuplicateMember(Member member) {
-        Member findMember = memberRepository.findByEmail(member.getEmail());
-        if (findMember != null) {
+        Member findEmail = memberRepository.findByEmail(member.getEmail());
+        Member findNickName = memberRepository.findByNickName(member.getNickName());
+        if (findEmail != null || findNickName != null) {
             throw new IllegalStateException("이미 가입된 회원입니다.");
         }
     }
@@ -34,7 +35,6 @@ public class MemberService implements UserDetailsService {
         Long memberId = memberRepository.findByEmail(name).getId();
         return memberId;
     }
-
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 

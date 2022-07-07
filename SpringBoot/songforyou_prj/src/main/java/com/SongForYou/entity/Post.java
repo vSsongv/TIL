@@ -6,6 +6,8 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="post")
@@ -15,7 +17,6 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @ToString
 public class Post extends BaseEntity{
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "post_id")
@@ -29,5 +30,10 @@ public class Post extends BaseEntity{
     @JoinColumn(name = "user_id")
     @JsonIgnore
     private Member member;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.REMOVE}, mappedBy = "post")
+    @Builder.Default
+    private List<Comment> comments = new ArrayList<>();
+
 
 }

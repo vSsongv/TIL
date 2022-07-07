@@ -10,6 +10,8 @@ import lombok.Setter;
 @Setter
 public class CommentReadDto {
     private String content;
+
+    private String email;
     private Long comment_id;
     private String writer;
     private Long writer_id;
@@ -20,6 +22,7 @@ public class CommentReadDto {
         comment_id = comment.getId();
         writer_id = comment.getMember().getId();
         writer = comment.getMember().getNickName();
+        email = comment.getMember().getEmail();
         post_id = comment.getPost().getId();
     }
 

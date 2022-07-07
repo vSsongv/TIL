@@ -3,7 +3,6 @@ package com.SongForYou.entity;
 import com.SongForYou.constant.Role;
 import com.SongForYou.dto.MemberFormDto;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -13,16 +12,15 @@ import javax.persistence.*;
 @Entity
 @Table(name="member")
 @Getter @Setter
-@NoArgsConstructor
 @ToString
 public class Member extends BaseEntity {
     @Id
     @Column(name="member_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String nickName;
-//    private String name;
+    private String name;
     private String email;
     private String password;
 

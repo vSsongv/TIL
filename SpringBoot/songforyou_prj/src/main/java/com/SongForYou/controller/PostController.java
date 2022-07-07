@@ -1,26 +1,29 @@
 package com.SongForYou.controller;
 
+import com.SongForYou.dto.CommentDto;
 import com.SongForYou.dto.PostDto;
 import com.SongForYou.dto.PostReadDto;
+import com.SongForYou.entity.Member;
 import com.SongForYou.entity.Post;
+import com.SongForYou.repository.MemberRepository;
 import com.SongForYou.repository.PostRepository;
 import com.SongForYou.service.MemberService;
 import com.SongForYou.service.PostService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.security.Principal;
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/post")
@@ -30,6 +33,8 @@ public class PostController {
     private final PostService postService;
     private final MemberService memberService;
 
+    @Autowired
+    private final MemberRepository memberRepository;
     @GetMapping(value = "/new")
     public String postForm(Model model) {
         model.addAttribute("postDto",new PostDto());
@@ -37,9 +42,21 @@ public class PostController {
     }
 
     @GetMapping(value = "/{postId}")
-    public String detailPost(Model model,  @PathVariable("postId") Long postId) {
+    public String detailPost(Model model,  @PathVariable("postId") Long postId, Principal principal) {
         PostReadDto postReadDto = postService.readPost(postId);
+        Optional<Member> member = memberRepository.findById(postReadDto.getWriterId());
+        CommentDto commentDto = new CommentDto();
+
+        if (principal != null) { //로그인 정보가 있을 떄
+            if (principal.getName().equals(member.get().getEmail())) {
+                model.addAttribute("myPost", 1);
+            }
+            model.addAttribute("userId", principal.getName());
+        }
+
         model.addAttribute("postReadDto", postReadDto);
+
+        model.addAttribute("commentDto",commentDto);
         return "post/detail";
     }
 
@@ -50,6 +67,12 @@ public class PostController {
         return "post/form";
     }
 
+    @GetMapping(value = "/genre/{genreId}")
+    public String getPostByGenre(Model model, @PathVariable("genreId") Integer genreId) {
+        List<Post> posts = postService.getPostByGenreId(genreId);
+        model.addAttribute("posts", posts);
+        return "main";
+    }
     @PostMapping(value = "/new")
     public String uploadPost(@Valid PostDto postDto, BindingResult bindingResult,
                           Model model, Principal principal) {
@@ -81,10 +104,10 @@ public class PostController {
         return "redirect:/";
     }
 
-    @GetMapping(value = "/{postId}/delete")
-    public String deletePost(@PathVariable("postId") Long postId) {
+    @PostMapping (value = "/{postId}/delete")
+    public @ResponseBody ResponseEntity deletePost(@PathVariable("postId") Long postId, HttpServletResponse response) {
         postService.deletePost(postId);
-        return "redirect:/";
+        return new ResponseEntity<Long>(postId,HttpStatus.OK);
     }
 }
 

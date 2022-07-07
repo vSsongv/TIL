@@ -3,7 +3,9 @@ package com.SongForYou.service;
 
 import com.SongForYou.dto.CommentReadDto;
 import com.SongForYou.entity.Comment;
+import com.SongForYou.entity.Member;
 import com.SongForYou.repository.CommentRepository;
+import com.SongForYou.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,16 +18,19 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class CommentService {
     private final CommentRepository commentRepository;
-
+    private final MemberRepository memberRepository;
     @Transactional
-    public Long createComment(Comment comment){
+    public Long createComment(Comment comment, Long memberId){
+        Member member = memberRepository.findById(memberId)
+                .orElseThrow(()-> new IllegalArgumentException("not found member"));
+        comment.setMember(member);
         Long commentId = commentRepository.save(comment).getId();
         return commentId;
     }
 
     @Transactional
-    public Long updateComment(Long id, Comment comment){
-        Comment updatedComment = commentRepository.findById(id)
+    public Long updateComment(Long commentId, Comment comment){
+        Comment updatedComment = commentRepository.findById(commentId)
                 .orElseThrow(()-> new IllegalArgumentException("don't exist"));
         comment.setContent(comment.getContent());
         return updatedComment.getId();
@@ -50,5 +55,11 @@ public class CommentService {
                 .map(m -> new CommentReadDto(m))
                 .collect(Collectors.toList());
         return collect;
+    }
+
+    public Comment findComment(Long commentId){
+        Comment comment = commentRepository.findById(commentId)
+                .orElseThrow(()-> new IllegalArgumentException("not found comment"));
+        return comment;
     }
 }
