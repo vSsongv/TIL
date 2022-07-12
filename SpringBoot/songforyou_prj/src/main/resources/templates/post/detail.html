@@ -97,9 +97,15 @@
 <!-- 사용자 CSS 추가 -->
 <th:block layout:fragment="css">
     <style>
-        .postWrapper {
-            border: 1px solid black;
+        .content {
+            width: 800px;
             margin: auto;
+            margin-top: 30px;
+            padding: 20px;
+        }
+
+        .table {
+            margin-top: 30px;
         }
     </style>
 </th:block>
@@ -109,8 +115,9 @@
 </head>
 <body>
 <div layout:fragment="content">
-    <div class="postWrapper">
-        <span class="post-title" th:text="${postReadDto.title}"></span>
+
+        <div class="postTitleInfo">
+        <span th:text="${postReadDto.title}"></span>
         <span th:if="${postReadDto.genreId}==1" th:text="팝"></span>
         <span th:if="${postReadDto.genreId}==2" th:text="케이팝"></span>
         <span th:if="${postReadDto.genreId}==3" th:text="댄스"></span>
@@ -118,33 +125,46 @@
         <span th:if="${postReadDto.genreId}==5" th:text="발라드"></span>
         <span th:if="${postReadDto.genreId}==6" th:text="클래식"></span>
         <span th:if="${postReadDto.genreId}==7" th:text="기타"></span>
-        <span class="post-title" th:text="${postReadDto.writer}"></span>
+        <span th:text="${postReadDto.writer}"></span>
         <span th:text="${#temporals.format(postReadDto.createdTime, 'yyyy-MM-dd')}"></span>
-        <div>
-            <div class="post-title" th:text="${postReadDto.content}"></div>
-            <a class="post-title" th:text="${postReadDto.link}"></a>
-            <button sec:authorize="isAuthenticated()" th:if="${myPost == 1}">
-                <a th:href="'/post/'+${postReadDto.postId}+'/update'">수정</a>
-            </button>
-            <button id="postId" th:value="${postReadDto.postId}" th:if="${myPost == 1}" onclick="deletePost(this.value)">삭제</button>
         </div>
-    </div>
+
+            <div
+                    class="post-content" th:text="${postReadDto.content}"></div>
+            <div class="post-bottom"><div class="post-link"><a th:text="${postReadDto.link}" th:href="@{${postReadDto.link}}"></a></div>
+                <button sec:authorize="isAuthenticated()" th:if="${myPost == 1}">
+                    <a th:href="'/post/'+${postReadDto.postId}+'/update'">수정</a>
+                </button>
+                <button id="postId" th:value="${postReadDto.postId}" th:if="${myPost == 1}" onclick="deletePost(this.value)">삭제</button>
+            </div>
+
+
 
     <div class="commentWrapper" sec:authorize="isAuthenticated()" >
-        <form role="form" method="post" th:object="${commentDto}">
+        <form role="form" method="post" th:object="${commentDto}" class="makeComment">
             <input class="form-control" placeholder="댓글을 입력해주세요" aria-label="With textarea" th:field="*{content}">
             <p th:if="${#fields.hasErrors('content')}" th:errors="*{content}" class="fieldError">Incorrect data</p>
             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
-            <button class="btn btn-primary" th:formaction="@{'/comment/new/' + ${postReadDto.postId}}" type="submit">댓글 등록</button>
+            <button style="width: 130px" class="btn btn-primary" th:formaction="@{'/comment/new/' + ${postReadDto.postId}}" type="submit">댓글 등록</button>
         </form>
 
-        <ul th:each="comment, status: ${postReadDto.commentReadDtoList}">
-            <li>
-                <span th:text="${comment.writer}"></span>
-                <span id="comment-content" th:text="${comment.content}"></span>
-                <button id="delete-btn" sec:authorize="isAuthenticated()" th:value ="${comment.comment_id}" th:if="${userId == comment.email}" onclick="deleteComment(this.value)">댓글 삭제</button>
-            </li>
-        </ul>
+        <table class="table">
+            <thead>
+            <tr>
+                <td>닉네임</td>
+                <td>댓글</td>
+                <td>등록 날짜</td>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="comment, status: ${postReadDto.commentReadDtoList}">
+                    <td th:text="${comment.writer}"></td>
+                    <td id="comment-content" th:text="${comment.content}"></td>
+                    <td id="comment-date" th:text="${#temporals.format(comment.createdTime, 'yyyy-MM-dd')}"></td>
+                    <td><button class="delete-btn" sec:authorize="isAuthenticated()" th:value ="${comment.comment_id}" th:if="${userId == comment.email}" onclick="deleteComment(this.value)">댓글 삭제</button></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 </body>

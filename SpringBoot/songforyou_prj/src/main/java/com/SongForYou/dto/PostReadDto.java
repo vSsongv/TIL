@@ -1,5 +1,6 @@
 package com.SongForYou.dto;
 
+import com.SongForYou.entity.BaseEntity;
 import com.SongForYou.entity.Post;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,7 +20,6 @@ public class PostReadDto {
     private String writer;
     private Long writerId;
     private Long postId;
-
     public LocalDateTime createdTime;
     private Integer numOfComment;
     private List<CommentReadDto> commentReadDtoList;

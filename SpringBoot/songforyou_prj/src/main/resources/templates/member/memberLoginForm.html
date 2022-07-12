@@ -7,41 +7,70 @@
 <th:block layout:fragment="css">
   <style>
         .error {
-            color: #bd2130;
+            color: red;
         }
         .loginForm {
           margin: auto;
           width: 500px;
           margin-top: 40px;
-          border : 1px solid black;
+          border : 2px solid #FFE279;
           border-radius: 3px;
-          padding: 20px;
+          padding: 50px 20px;
           text-align: center;
           }
 
           .form-group {
-            display: flex;
-            flex-direction: row;
+            justify-content: flex-end;
+          }
+
+          .form-group label {
+            width: 130px;
+            height: 40px;
+            border: none;
+            text-align: center;
+            border-radius: 3px;
+            background-color: #FFE279;
+            line-height: 40px;
           }
 
           .form-group input {
-          width: 350px;
+              width: 350px;
+              border: none;
+             border-bottom: 3px solid #FFE279;
+              margin-left: 20px;
           }
 
           .loginBtn {
-            width: 300px;
+            color: white;
+            width: 200px;
+            height: 40px;
             background-color: #FFE279;
             border: 0;
             border-radius: 3px;
+            margin-top: 30px;
+          }
+
+     .loginBtn:hover {
+            width: 200px;
+            height: 40px;
+            background-color: #FFD02B;
+            color: black;
+            border: 0;
+            border-radius: 3px;
+            margin-top: 30px;
+          }
+          h3 {
+            margin-top : 40px;
+            text-align: center;
           }
     </style>
 </th:block>
 
 <div layout:fragment="content">
-
+  <h3>SongForYou에 로그인해서 음악을 공유해주세요!</h3>
   <form class="loginForm" role="form" method="post" action="/members/login">
     <div class="form-group">
-      <label th:for="email">ID</label>
+      <label th:for="email">Id</label>
       <input type="email" name="email" class="form-control" placeholder="이메일을 입력해주세요">
     </div>
     <div class="form-group">

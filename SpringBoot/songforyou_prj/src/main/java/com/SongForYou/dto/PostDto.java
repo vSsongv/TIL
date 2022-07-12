@@ -12,7 +12,10 @@ public class PostDto {
     private String title;
     @NotBlank(message = "내용은 필수 입력 값입니다")
     private String content;
+
+    @NotBlank(message = "링크는 필수 입력 값입니다")
     private String link;
+
     private Integer genreId;
 
 }

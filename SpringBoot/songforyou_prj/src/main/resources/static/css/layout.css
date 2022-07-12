@@ -1,0 +1,147 @@
+.btn.btn-primary{
+    background-color: #FFE279;
+    border: 0;
+}
+
+.btn.btn-primary:hover{
+background-color: #FFD02B;
+            color: black;
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: black;
+    background-color: #FFE279;
+    border-color: #FFE279;
+}
+.navbar{
+    background-color:#FFE279 !important;
+}
+
+.nav-link {
+   color: black !important;
+}
+
+.navbar-brand {
+    font-weight:600;
+    font-size: 30px;
+}
+
+a {     text-decoration: none !important;
+        color: black;
+         }
+
+.mainSection {
+    margin: auto;
+    margin-top: 30px;
+    width: 1000px;
+}
+
+.table {
+    border: 1px solid #FFE279;
+}
+
+.fieldError {
+color: red;
+}
+
+.postForm {
+width:800px;
+weight: 600px;
+margin: auto;
+margin-top:30px;
+border: 1px solid #FFE279;
+padding: 20px;
+border-radius: 3px;
+}
+
+.form-group {
+display: flex;
+flex-direction: row;
+}
+
+.recommend-btn{
+    background-color: #FFE279;
+    border: 0;
+    right: 1;
+    width: 150px;
+    color: white;
+                        position: relative;
+                        float: right;
+                        border-radius: 5px;
+                        height: 50px;
+}
+
+.recommend-btn:hover{
+    background-color: #FFD02B;
+            color: black;
+                   width: 150px;
+                    border-radius: 5px;
+                    height: 50px;
+
+}
+
+ul {
+list-style:none;
+}
+
+.postTitleInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.makeComment {
+    display: flex;
+}
+
+.makeComment input {
+ width: 100%;
+ margin-right: 20px;
+}
+
+.postWrapper {
+    border: 3px solid #FFD02B;
+    margin-bottom: 10px;
+    margin: auto;
+}
+
+.postTitleInfo {
+padding: 20px;
+    border: 3px solid #FFD02B;
+}
+
+.post-bottom {
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    border: 3px solid #FFD02B;
+}
+
+.post-bottom button {
+    width: 100px;
+    height: 30px;
+    background-color: #FFE279;
+            border: 0;
+            border-radius: 3px;
+}
+
+.delete-btn {
+    background-color: #FFE279;
+            border: 0;
+            border-radius: 3px;s
+}
+
+.post-link {
+    width: 100%
+}
+
+.post-content {
+padding: 20px;
+    border: 3px solid #FFD02B;
+    height: 150px;
+}
+
+.commentWrapper {
+    margin-top: 30px;
+}

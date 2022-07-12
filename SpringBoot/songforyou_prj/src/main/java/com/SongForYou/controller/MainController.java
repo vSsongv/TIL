@@ -26,7 +26,7 @@ public class MainController {
     public String main(Model model, Principal principal) {
         if(principal != null){
             Member member = memberRepository.findByEmail(principal.getName());
-            model.addAttribute("member",member.getNickName());
+            model.addAttribute("member", member.getNickName());
         }
         List<Post> posts = postService.postList();
         model.addAttribute("posts", posts);

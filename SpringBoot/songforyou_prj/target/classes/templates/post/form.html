@@ -7,9 +7,6 @@
       <th:block layout:fragment="script">
 
       <script th:inline="javascript">
-      const handleOnChange = function (value) {
-      console.log(value);
-      }
 
       </script>
 
@@ -17,6 +14,24 @@
       <!-- 사용자 CSS 추가 -->
       <th:block layout:fragment="css">
       <style>
+        .post-title {
+            width: 200px;
+            border: none;
+            border-bottom: 3px solid #FFE279;
+        }
+        .post-link {
+            width: 300px;
+            border: 1px solid grey;
+            border-radius: 3px;
+        }
+        .post-content {
+            width: 100%;
+            height: 300px;
+            border-radius: 3px;
+        }
+        .form-group label {
+            margin-right: 20px;
+        }
 
       </style>
       </th:block>
@@ -26,16 +41,18 @@
 </head>
 <body>
 <div layout:fragment="content">
+    <section class="postForm">
     <form role="form" method="post" th:object="${postDto}">
         <input type="hidden" th:field="${postDto.id}">
           <div class ="form-group">
                 <label th:for = "title"> 제목</label>
-                <input placeholder="제목을 입력해 주세요." type = "text" th:name = "post" th:field="${postDto.title}" class="form-control">
-                <p th:if="${#fields.hasErrors('title')}" th:errors="${title}" class="fieldError">Incorrect data</p>
-          </div>
-          <div class = "from-group">
+                <input placeholder="제목을 입력해 주세요." type = "text" th:name = "post" th:field="${postDto.title}" class="post-title">
+
+        <p th:if="${#fields.hasErrors('title')}" th:errors="${postDto.title}" class="fieldError">Incorrect data</p>
+
+                <label>장르</label>
                 <div class="selectArea">
-                  <select th:field="${postDto.genreId}">
+                  <select style="width: 150px" th:field="${postDto.genreId}">
                     <option value="">장르 선택</option>
                     <option th:text="팝" th:value="1">팝</option>
                     <option th:text="케이팝" th:value="2">케이팝</option>
@@ -47,20 +64,24 @@
                 </div>
             </div>
           <div class ="form-group">
-                <textarea placeholder="내용을 입력해 주세요." th:field="${postDto.content}" class="form-control"></textarea>
-                <p th:if="${#fields.hasErrors('content')}" th:errors="${content}" class="fieldError">Incorrect data</p>
+                <textarea placeholder="내용을 입력해 주세요." th:field="${postDto.content}" class="post-content"></textarea>
           </div>
+        <p th:if="${#fields.hasErrors('content')}" th:errors="${postDto.content}" class="fieldError">Incorrect data</p>
+
           <div class="form-group">
-                <label th:for="link"> 링크</label>
-                <input placeholder="유튜브 링크를 입력해 주세요." type = "text" th:name="link" th:field="${postDto.link}" class="form-control">
-                <p th:if="${#fields.hasErrors('link')}" th:errors="${link}" class="fieldError">Incorrect data</p>
-          </div>
+                <label th:for="link">첨부 링크</label>
+                <input placeholder="유튜브 링크를 입력해 주세요." type = "text" th:name="link" th:field="${postDto.link}" class="post-link">
+
+        <p th:if="${#fields.hasErrors('link')}" th:errors="${postDto.link}" class="fieldError">Incorrect data</p>
+</div>
+
         <div th:if="${#strings.isEmpty(postDto.id)}" style="text-align: center">
-            <button th:formaction="@{/post/new}" type="submit" class="btn btn-primary">등록하기</button>
+            <button th:formaction="@{/post/new}" type="submit" class="btn btn-primary">작성완료</button>
         </div>
         <div th:unless="${#strings.isEmpty(postDto.id)}" style="text-align: center">
             <button th:formaction="@{'/post/'+${postDto.id}+'/update'}" type="submit" class="btn btn-primary">수정하기</button>
         </div>
-        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
-  </form>
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+        </form>
+    </section>
 </div>

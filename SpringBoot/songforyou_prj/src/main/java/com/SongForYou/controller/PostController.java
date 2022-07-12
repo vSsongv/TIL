@@ -68,7 +68,11 @@ public class PostController {
     }
 
     @GetMapping(value = "/genre/{genreId}")
-    public String getPostByGenre(Model model, @PathVariable("genreId") Integer genreId) {
+    public String getPostByGenre(Model model, @PathVariable("genreId") Integer genreId, Principal principal) {
+        if (principal != null) { //로그인 정보가 있을 때
+            Member member = memberRepository.findByEmail(principal.getName());
+            model.addAttribute("member", member.getNickName());
+        }
         List<Post> posts = postService.getPostByGenreId(genreId);
         model.addAttribute("posts", posts);
         return "main";
@@ -101,7 +105,7 @@ public class PostController {
             model.addAttribute("errorMessage", "게시글 등록 중 에러가 발생하였습니다.");
             return "post/form";
         }
-        return "redirect:/";
+        return "redirect:/post/{postId}";
     }
 
     @PostMapping (value = "/{postId}/delete")
