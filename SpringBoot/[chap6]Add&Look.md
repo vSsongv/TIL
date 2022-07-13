@@ -44,19 +44,14 @@
     - 결과가 없을때는 null 반환, 결과가 둘 이상이면 NonUniqueResultException 반환
     
     ```java
-    Member fetchOne = queryFactory
-    										.selectFrom(member)
-    										.fetch();
+    Member fetchOne = queryFactory.selectFrom(member).fetch();
     ```
     
 3. **fetchFirst()**
     - 처음의 한 건을 가져오고 싶을 때 사용. 주석에 있는 표현과 같은 표현
     
     ```java
-    Member fetchFirst = queryFactory
-    											.selectFrom(QMember.member)
-    											//.limit(1).fetchOne()
-    											.fetchFirst();
+    Member fetchFirst = queryFactory.selectFrom(QMember.member)//.limit(1).fetchOne().fetchFirst();
     ```
     
 4. **fetchResults()**
