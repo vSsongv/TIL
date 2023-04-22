@@ -1,4 +1,3 @@
-```js
 // 이름은 string만 가능하다.
 let name :string = '진영';
 
@@ -50,4 +49,12 @@ function infLoop():never {
         // do something
     }
 }
-```
+
+// 타입 단언
+// <T>{obj}
+// {obj} as T
+
+const countries = result.map((data: any) => {
+          const {region, subregion, name, population} = data;
+          return {region, subregion, name: name.common, population} as ICountry;
+        });

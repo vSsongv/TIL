@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<th:block layout:fragment="script">
+
+  <script th:inline="javascript">
+
+  </script>
+
+</th:block>
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+  <style>
+        .carousel-inner > .item {
+            height: 350px;
+        }
+        .margin{
+            margin-bottom:30px;
+        }
+        .banner{
+            height: 300px;
+            position: absolute; top:0; left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .card-text{
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        a:hover{
+            text-decoration:none;
+        }
+        .center{
+            text-align:center;
+        }
+        .selectArea {
+            display: flex;
+            flex-direction: row;
+        }
+        .welcomement {
+        margin-top: 30px;
+        }
+    </style>
+</th:block>
+
+<div layout:fragment="content">
+
+  <section class="mainSection">
+    <span style="font-size:20px" sec:authorize="isAuthenticated()"><span th:text="${member}"></span>님, 환영합니다.</span>
+    <span class="welcomement" sec:authorize="isAnonymous()">로그인을 하시면 추천이 가능합니다.</span>
+  <div class="selectArea" style="margin-top: 30px; margin-bottom:30px">
+    <h3 style="margin-right: 30px">오늘 듣고 싶은 노래가 뭔가요?</h3>
+    <select style="width:200px"  th:onchange="if(this.value) location.href=(this.value);" name="genre">
+      <option value="">장르 선택</option>
+      <option value="/">전체보기</option>
+      <option value="/post/genre/1">팝</option>
+      <option value="/post/genre/2">케이팝</option>
+      <option value="/post/genre/3">댄스</option>
+      <option value="/post/genre/4">재즈</option>
+      <option value="/post/genre/5">발라드</option>
+      <option value="/post/genre/6">클래식</option>
+      <option value="/post/genre/7">기타</option>
+    </select>
+  </div>
+  <table class="table">
+    <thead>
+    <tr>
+      <td>글 제목</td>
+      <td>작성자</td>
+      <td>장르</td>
+      <td>날짜</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="post, status: ${posts}">
+      <td>
+        <a th:href="'/post/'+${post.id}" th:text="${post.title}"></a>
+      </td>
+      <td th:text="${post.member.nickName}"></td>
+      <td th:if="${post.genreId}==1" th:text="팝"></td>
+      <td th:if="${post.genreId}==2" th:text="케이팝"></td>
+      <td th:if="${post.genreId}==3" th:text="댄스"></td>
+      <td th:if="${post.genreId}==4" th:text="재즈"></td>
+      <td th:if="${post.genreId}==5" th:text="발라드"></td>
+      <td th:if="${post.genreId}==6" th:text="클래식"></td>
+      <td th:if="${post.genreId}==7" th:text="기타"></td>
+      <td th:text="${#temporals.format(post.createdTime, 'yyyy-MM-dd')}"></td>
+    </tr>
+    </tbody>
+  </table>
+  <button onclick="location.href='/post/new'" class="recommend-btn" sec:authorize="isAuthenticated()">나도 추천하기</button>
+  </section>
+</div>
