@@ -19,3 +19,7 @@
 ### Router
 `const router = useRouter();`
 - router.pathname : 현재 pathname
+
+### _app.js
+- next는 화면을 렌더링할 때 _app.js를 가장 먼저 바라본다.
+- 따라서 공통적인 부분을 _app.js 파일에 넣어주면 된다. React의 App.js의 역할을 한다고 볼 수 있을 것 같다.
