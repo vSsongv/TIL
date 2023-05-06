@@ -11,7 +11,7 @@
 - folder내에는 page파일이 있어야 하고 이 파일이 UI을 정의한다.
 - layout파일은 page파일 밖에 있는 파일이다. 페이지 간 공유하고 싶은 파일들.(header등)
 - `xxx.module.css`로 파일명을 지으면 xxx파일에만 css가 적용된다.
-- 상단에 `use client` 라고 쓰지 않으면 기본 server component로 동작하여, html에 js 기능을 넣을 수 없다.(onClick, useState 등)
+- next는 client component, server component 2가지로 나누어짐. 상단에 `use client` 라고 쓰지 않으면 기본 server component로 동작하여, html에 js 기능을 넣을 수 없다.(onClick, useState 등)
 
 ### CSR
 
