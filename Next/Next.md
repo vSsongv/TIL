@@ -175,8 +175,8 @@ const onClick = (id) => {
 
 - `[...pathname]`파일은 pathname이외의 url에 있는 모든 query값들을 받아온다.
 
-<img src="Image 2.jpg">
-<img src="Image 4.jpg">
+<img src="Image 1.jpg">
+<img src="Image 3.jpg">
 
 - useRouter는 client side에서만 동작하므로, SEO등이 필요하거나 pre-rendering을 하고자 한다면 getServerSideProps을 사용하면 됨.
 
